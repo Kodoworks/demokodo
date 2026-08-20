@@ -1,26 +1,198 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f3ef;
+  --foreground: #14151a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-sans: var(--font-hanken);
+  --font-display: var(--font-space);
+
+  /* Extra breakpoints so the layout keeps scaling on large monitors
+     instead of just centering with dead space on either side. */
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
+  --breakpoint-5xl: 3840px;
+
+  /* Neutral ink scale — warm off-white through near-black */
+  --color-navy-50: #faf9f7;
+  --color-navy-100: #f1f0ec;
+  --color-navy-200: #e4e3dd;
+  --color-navy-300: #c7c6c0;
+  --color-navy-400: #93949c;
+  --color-navy-500: #4f515a;
+  --color-navy-600: #383a42;
+  --color-navy-700: #26272d;
+  --color-navy-800: #1c1d22;
+  --color-navy-850: #191a1f;
+  --color-navy-900: #17181c;
+  --color-navy-950: #14151a;
+
+  /*
+   * Unified palette — black neutral scale + red, yellow, green as the
+   * only three accent hues site-wide (buttons, cards, tags, panels all
+   * draw from this same trio, nothing else). Token names (brand/amber/
+   * violet) are kept from earlier so component classes didn't need
+   * renaming — brand = green, amber = yellow, violet = red.
+   */
+
+  /* Green — primary brand accent (buttons, consistently, everywhere) */
+  --color-brand-300: #8ff0c0;
+  --color-brand-400: #33de8f;
+  --color-brand-500: #00ce68;
+  --color-brand-600: #00a854;
+  --color-brand-700: #008544;
+
+  /* Yellow — energy / highlight accent */
+  --color-amber-300: #fff085;
+  --color-amber-400: #ffe300;
+  --color-amber-500: #ffd400;
+  --color-amber-600: #d9a500;
+
+  /* Red — secondary accent */
+  --color-violet-300: #ffb0a8;
+  --color-violet-400: #fb6a5c;
+  --color-violet-500: #f03a2e;
+  --color-violet-600: #c22a20;
+
+  /* WhatsApp green (utility brand, floating button only) */
+  --color-whatsapp: #25d366;
+
+  /* Program category accents — cycle the same red / yellow / green trio
+     (light tint + dark) so category tags stay inside the unified palette */
+  --color-cat-security: #f03a2e;
+  --color-cat-security-light: #f03a2e14;
+  --color-cat-genai: #00ce68;
+  --color-cat-genai-light: #00ce6814;
+  --color-cat-cloud: #d9a500;
+  --color-cat-cloud-light: #ffd40017;
+  --color-cat-dev: #00ce68;
+  --color-cat-dev-light: #00ce6814;
+  --color-cat-data: #f03a2e;
+  --color-cat-data-light: #f03a2e14;
+  --color-cat-enterprise: #d9a500;
+  --color-cat-enterprise-light: #ffd40017;
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  border-color: theme(--color-navy-700 / 12%);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 76px;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brand-500);
+  color: #ffffff;
+}
+
+/* ---------- Reusable utilities ---------- */
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), ui-sans-serif, sans-serif;
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #3ce69a 0%, var(--color-brand-500) 55%, #008544 100%);
+}
+
+.gradient-pink {
+  background: linear-gradient(135deg, #ff6b5c 0%, var(--color-violet-500) 55%, #921f16 100%);
+}
+
+.gradient-black {
+  background: linear-gradient(135deg, #2a2c33 0%, var(--color-navy-950) 55%, #050506 100%);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.card-shadow {
+  box-shadow:
+    0 1px 2px 0 rgba(20, 21, 26, 0.04),
+    0 12px 28px -14px rgba(20, 21, 26, 0.14);
+}
+
+.card-shadow-lg {
+  box-shadow:
+    0 2px 6px 0 rgba(20, 21, 26, 0.05),
+    0 24px 48px -16px rgba(20, 21, 26, 0.22);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee { animation: var(--animate-marquee); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.reveal-in {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+  }
+  .reveal,
+  .reveal-in {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
 }
