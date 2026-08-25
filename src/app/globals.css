@@ -64,6 +64,8 @@
 
   /* Program category accents — cycle the same red / yellow / green trio
      (light tint + dark) so category tags stay inside the unified palette */
+  --color-cat-ai: #00ce68;
+  --color-cat-ai-light: #00ce6814;
   --color-cat-security: #f03a2e;
   --color-cat-security-light: #f03a2e14;
   --color-cat-genai: #00ce68;

@@ -31,7 +31,7 @@ export default function FAQ() {
             </Reveal>
             <Reveal delay={140}>
               <div className="mt-6">
-                <Button href="#contact" icon>
+                <Button href="/contact" icon>
                   Talk to KodoWorks
                 </Button>
               </div>

@@ -1,7 +1,16 @@
 import { Sparkles } from "lucide-react";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionTag from "@/components/ui/SectionTag";
 import Logo from "@/components/ui/Logo";
+
+const FELLOW_AVATARS = [
+  { src: "/images/hero/avatar-fellow-1.jpg", position: "25% 22%" },
+  { src: "/images/hero/avatar-fellow-2.jpg", position: "50% 30%" },
+  { src: "/images/hero/avatar-fellow-3.jpg", position: "72% 42%" },
+  { src: "/images/hero/avatar-fellow-4.jpg", position: "80% 28%" },
+  { src: "/images/hero/avatar-fellow-5.jpg", position: "20% 65%" },
+];
 
 export default function Hero() {
   return (
@@ -19,6 +28,29 @@ export default function Hero() {
             KodoWorks is building the future of how talent meets industry, for
             individuals, institutions, and enterprises.
           </p>
+
+          <div className="mt-7 flex items-center gap-3">
+            <div className="flex -space-x-3">
+              {FELLOW_AVATARS.map((avatar, i) => (
+                <span
+                  key={i}
+                  className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full ring-2 ring-white"
+                >
+                  <Image
+                    src={avatar.src}
+                    alt=""
+                    fill
+                    sizes="40px"
+                    className="object-cover"
+                    style={{ objectPosition: avatar.position }}
+                  />
+                </span>
+              ))}
+            </div>
+            <p className="text-[13px] font-medium text-navy-500">
+              Trusted by fellows across 7 fellowship programs.
+            </p>
+          </div>
         </div>
 
         {/* Right: poster card */}

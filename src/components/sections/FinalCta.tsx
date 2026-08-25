@@ -28,13 +28,13 @@ export default function FinalCta() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="group inline-flex items-center gap-2 rounded-[14px] bg-white px-6 py-3.5 text-[15px] font-semibold text-brand-500 transition-transform duration-200 hover:-translate-y-0.5"
                 >
                   Talk to KodoWorks
                   <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                 </Link>
-                <Button href="#programs" variant="outline-light" size="lg">
+                <Button href="/programs" variant="outline-light" size="lg">
                   View all 7 programs
                 </Button>
               </div>

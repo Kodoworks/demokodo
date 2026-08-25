@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
@@ -20,24 +21,24 @@ export default function Navbar() {
     <div className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
       <header className="mx-auto max-w-7xl 3xl:max-w-[1640px] 4xl:max-w-[1960px] 5xl:max-w-[2240px]">
         <nav className="flex h-[60px] items-center justify-between rounded-[20px] border border-navy-900/[0.06] bg-white/75 pl-4 pr-2 backdrop-blur-lg card-shadow sm:pl-5 sm:pr-3">
-          <a href="#top" className="shrink-0" onClick={() => setOpen(false)}>
+          <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
             <Logo />
-          </a>
+          </Link>
 
           <div className="hidden items-center xl:flex">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="whitespace-nowrap rounded-full px-3 py-2 text-[13.5px] font-medium text-navy-700 transition-colors hover:bg-navy-900/[0.05] hover:text-navy-950"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
           <div className="hidden xl:flex">
-            <Button href="#contact" size="sm" icon>
+            <Button href="/contact" size="sm" icon>
               Talk to KodoWorks
             </Button>
           </div>
@@ -60,16 +61,16 @@ export default function Navbar() {
           <div className="min-h-0">
             <div className="flex flex-col gap-1 rounded-[20px] border border-navy-900/[0.06] bg-white/95 p-3 backdrop-blur-lg card-shadow-lg">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="rounded-xl px-3.5 py-3 text-[15px] font-medium text-navy-800 hover:bg-navy-900/[0.04]"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <Button href="#contact" className="mt-2 w-full" onClick={() => setOpen(false)}>
+              <Button href="/contact" className="mt-2 w-full" onClick={() => setOpen(false)}>
                 Talk to KodoWorks
               </Button>
             </div>

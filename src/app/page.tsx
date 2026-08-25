@@ -1,7 +1,3 @@
-import TickerBar from "@/components/layout/TickerBar";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import FloatingButtons from "@/components/layout/FloatingButtons";
 import Hero from "@/components/sections/Hero";
 import Audiences from "@/components/sections/Audiences";
 import StatsBar from "@/components/sections/StatsBar";
@@ -14,31 +10,28 @@ import CertificateSection from "@/components/sections/CertificateSection";
 import CertificationsRow from "@/components/sections/CertificationsRow";
 import PlacementPathway from "@/components/sections/PlacementPathway";
 import Testimonials from "@/components/sections/Testimonials";
+import PlacedStudents from "@/components/sections/PlacedStudents";
 import FAQ from "@/components/sections/FAQ";
 import FinalCta from "@/components/sections/FinalCta";
 
 export default function Home() {
   return (
-    <>
-      <TickerBar />
-      <Navbar />
-      <main>
-        <Hero />
-        <Audiences />
-        <StatsBar />
-        <ContactFormSection />
-        <ComparisonTable />
-        <ValueProps />
-        <Programs />
-        <CertificateSection />
-        <CertificationsRow />
-        <PlacementPathway />
-        <Testimonials />
-        <FAQ />
-        <FinalCta />
-      </main>
-      <Footer />
-      <FloatingButtons />
-    </>
+    <main>
+      <Hero />
+      <Audiences />
+      <StatsBar />
+      <ContactFormSection />
+      <ComparisonTable />
+      <ValueProps />
+      <Mentors />
+      <Programs />
+      <CertificateSection />
+      <CertificationsRow />
+      <PlacementPathway />
+      <Testimonials />
+      <PlacedStudents />
+      <FAQ />
+      <FinalCta />
+    </main>
   );
 }

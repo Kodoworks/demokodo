@@ -28,7 +28,7 @@ export default function Programs() {
               </p>
             </Reveal>
           </div>
-          <Button href="#programs" variant="outline-dark" className="shrink-0" icon>
+          <Button href="/programs" variant="outline-dark" className="shrink-0" icon>
             View all 7 programs
           </Button>
         </div>
@@ -80,7 +80,7 @@ export default function Programs() {
                 <Button href={`/courses/${featured.slug}`} icon>
                   View Program
                 </Button>
-                <Button href="#contact" variant="outline-dark">
+                <Button href="/contact" variant="outline-dark">
                   Contact Us
                 </Button>
               </div>
@@ -148,7 +148,7 @@ export default function Programs() {
                       View Program
                       <ArrowUpRight className="h-3.5 w-3.5 text-amber-400 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </Link>
-                    <a href="#contact" className="text-[13px] font-medium text-navy-400 hover:text-navy-700">
+                    <a href="/contact" className="text-[13px] font-medium text-navy-400 hover:text-navy-700">
                       Contact
                     </a>
                   </div>

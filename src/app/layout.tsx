@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import TickerBar from "@/components/layout/TickerBar";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import FloatingButtons from "@/components/layout/FloatingButtons";
 
 const hanken = Hanken_Grotesk({
   variable: "--font-hanken",
@@ -40,7 +44,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <noscript>
           <style>{`.reveal{opacity:1 !important;transform:none !important;}`}</style>
         </noscript>
+        <TickerBar />
+        <Navbar />
         {children}
+        <Footer />
+        <FloatingButtons />
       </body>
     </html>
   );

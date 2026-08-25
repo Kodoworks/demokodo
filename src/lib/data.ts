@@ -10,6 +10,7 @@ export type Program = {
   roleTags: string[];
   idealFor: string;
   features: string[];
+  skills: string[];
   category: string;
   catColor: "ai" | "cloud" | "dev" | "security" | "data" | "genai" | "enterprise";
   icon:
@@ -25,11 +26,11 @@ export type Program = {
 export const programs: Program[] = [
   {
     slug: "ai-engineering-ml",
-    name: "AI Engineering & Machine Learning",
-    shortName: "AI Engineering & ML",
+    name: "AI & Machine Learning",
+    shortName: "AI & Machine Learning",
     tagline: "From zero to production AI.",
-    duration: "6 Months",
-    durationShort: "6 mo",
+    duration: "24 Weeks",
+    durationShort: "24 wk",
     salary: "₹6 to ₹24 LPA",
     roles: "AI Engineer · ML Engineer · Data Scientist",
     roleTags: ["AI Engineer", "ML Engineer", "Data Scientist"],
@@ -40,6 +41,7 @@ export const programs: Program[] = [
       "1:8 mentor-to-fellow ratio throughout the program",
       "Portfolio-ready projects reviewed by practising engineers",
     ],
+    skills: ["Python", "Machine Learning", "Deep Learning", "NLP", "Computer Vision", "Generative AI", "MLOps"],
     category: "AI & Machine Learning",
     catColor: "ai",
     icon: "brain",
@@ -61,17 +63,18 @@ export const programs: Program[] = [
       "AWS Solutions Architect exam prep included",
       "Capstone shipped on live cloud infrastructure",
     ],
+    skills: ["AWS", "GCP", "Docker", "Kubernetes", "Terraform", "CI/CD", "Linux"],
     category: "Cloud & DevOps",
     catColor: "cloud",
     icon: "cloud",
   },
   {
     slug: "full-stack-development",
-    name: "Full-Stack Development with AI",
-    shortName: "Full-Stack Development with AI",
+    name: "Java Full Stack Development",
+    shortName: "Java Full Stack Development",
     tagline: "Ship real products. With AI built in.",
-    duration: "7 Months",
-    durationShort: "7 mo",
+    duration: "24 Weeks",
+    durationShort: "24 wk",
     salary: "₹5 to ₹20 LPA",
     roles: "Full-Stack Developer · Product Engineer",
     roleTags: ["Full-Stack Dev", "Product Engineer"],
@@ -82,17 +85,18 @@ export const programs: Program[] = [
       "Widest hiring demand of any KodoWorks portfolio",
       "Direct mentorship from full-stack engineers",
     ],
+    skills: ["Core Java", "Spring Boot", "REST APIs", "Angular / React", "MySQL", "Microservices", "DevOps Basics"],
     category: "Development",
     catColor: "dev",
     icon: "code",
   },
   {
     slug: "cybersecurity",
-    name: "Cybersecurity & Ethical Hacking",
-    shortName: "Cybersecurity & Ethical Hacking",
+    name: "Cybersecurity",
+    shortName: "Cybersecurity",
     tagline: "Stop attacks before they happen.",
-    duration: "6 Months",
-    durationShort: "6 mo",
+    duration: "24 Weeks",
+    durationShort: "24 wk",
     salary: "₹5 to ₹25 LPA",
     roles: "SOC Analyst · Penetration Tester · Security Engineer",
     roleTags: ["SOC Analyst", "Pen Tester"],
@@ -103,17 +107,18 @@ export const programs: Program[] = [
       "Network, web application & cloud security coverage",
       "Labs modeled on live-fire attack scenarios",
     ],
+    skills: ["Ethical Hacking", "Linux", "Networking", "SIEM", "Cloud Security", "SOC Operations", "Risk Management"],
     category: "Security",
     catColor: "security",
     icon: "shield",
   },
   {
     slug: "data-science",
-    name: "NextGen Data Science & Analytics",
-    shortName: "Data Science & Analytics",
+    name: "Data Intelligence & Engineering",
+    shortName: "Data Intelligence & Engineering",
     tagline: "Own the data. Tell the story.",
-    duration: "6 Months",
-    durationShort: "6 mo",
+    duration: "24 Weeks",
+    durationShort: "24 wk",
     salary: "₹5 to ₹18 LPA",
     roles: "Data Analyst · Business Analyst · BI Developer",
     roleTags: ["Data Analyst", "BI Developer"],
@@ -124,6 +129,7 @@ export const programs: Program[] = [
       "Built for technical and non-technical backgrounds",
       "Statistics, EDA, feature engineering & model deployment",
     ],
+    skills: ["SQL", "Python", "ETL", "Data Warehousing", "NumPy & Pandas", "Power BI", "Data Analytics"],
     category: "Data",
     catColor: "data",
     icon: "chart",
@@ -145,17 +151,18 @@ export const programs: Program[] = [
       "Designed around a working professional's schedule",
       "Career guidance for GenAI role transitions",
     ],
+    skills: ["Prompt Engineering", "LLMs", "RAG", "Agentic Workflows", "LangChain", "Fine-Tuning", "AI Ethics"],
     category: "Generative AI",
     catColor: "genai",
     icon: "sparkles",
   },
   {
     slug: "servicenow-platform",
-    name: "ServiceNow & Enterprise Platform Engineering",
-    shortName: "ServiceNow & Platform Engineering",
+    name: "ServiceNow Admin & Developer",
+    shortName: "ServiceNow Admin & Developer",
     tagline: "From platform config to enterprise development.",
-    duration: "9 Months",
-    durationShort: "9 mo",
+    duration: "24 Weeks",
+    durationShort: "24 wk",
     salary: "₹6 to ₹18 LPA",
     roles: "ServiceNow Developer · ITSM Consultant · Platform Engineer",
     roleTags: ["ServiceNow Dev", "Platform Eng"],
@@ -166,6 +173,7 @@ export const programs: Program[] = [
       "Real enterprise workflow automation projects",
       "Career guidance for ITSM/platform roles",
     ],
+    skills: ["ITSM", "CMDB", "Integrations", "Workflows", "Service Portal", "App Engine"],
     category: "Enterprise",
     catColor: "enterprise",
     icon: "workflow",
@@ -306,31 +314,21 @@ export const faqs = [
   },
 ];
 
-export const mentorProfiles = [
-  {
-    role: "Senior Software Engineer",
-    focus: "Cloud Infrastructure",
-    description: "Builds production systems across cloud infrastructure and distributed applications.",
-    icon: "code",
-  },
-  {
-    role: "ML / AI Engineer",
-    focus: "Applied Machine Learning",
-    description: "Ships applied machine-learning systems from prototype to production scale.",
-    icon: "brain",
-  },
-  {
-    role: "Cloud / DevOps Engineer",
-    focus: "Site Reliability",
-    description: "Runs reliability and infrastructure for high-traffic production platforms.",
-    icon: "cloud",
-  },
-  {
-    role: "Security Engineer",
-    focus: "Cloud & App Security",
-    description: "Leads penetration testing and secures cloud and application environments.",
-    icon: "shield",
-  },
+export type Mentor = {
+  name: string;
+  role: string;
+  domain: string;
+  icon: "brain" | "code" | "workflow" | "chart" | "shield";
+};
+
+export const mentorProfiles: Mentor[] = [
+  { name: "Noble", role: "AI/ML Engineer", domain: "AI & Machine Learning", icon: "brain" },
+  { name: "Vasanth D", role: "Java Architect (USA)", domain: "Java Full Stack Development", icon: "code" },
+  { name: "Pavi A", role: "ServiceNow Consultant", domain: "ServiceNow Admin & Developer", icon: "workflow" },
+  { name: "Mari S", role: "Manager, ServiceNow", domain: "ServiceNow Admin & Developer", icon: "workflow" },
+  { name: "Manoj M", role: "Data Architect", domain: "Data Intelligence & Engineering", icon: "chart" },
+  { name: "Divesh", role: "Senior Data Engineer", domain: "Data Intelligence & Engineering", icon: "chart" },
+  { name: "Arun A", role: "Cybersecurity Engineer", domain: "Cybersecurity", icon: "shield" },
 ];
 
 export const projectShowcase = [
@@ -349,7 +347,7 @@ export const audiences = [
     title: "Students",
     description: "Build real engineering experience before you graduate.",
     cta: "Explore Student Programs",
-    href: "#programs",
+    href: "/for-students",
   },
   {
     key: "professionals",
@@ -357,7 +355,7 @@ export const audiences = [
     title: "Working Professionals",
     description: "Move into AI, Cloud, Data or Cybersecurity without putting your career on pause.",
     cta: "Explore Professional Programs",
-    href: "#programs",
+    href: "/for-professionals",
   },
   {
     key: "colleges",
@@ -365,7 +363,7 @@ export const audiences = [
     title: "Colleges & Institutions",
     description: "Build an industry-ready technology talent pipeline on campus.",
     cta: "Partner With KodoWorks",
-    href: "#contact",
+    href: "/for-colleges",
   },
   {
     key: "corporates",
@@ -373,7 +371,7 @@ export const audiences = [
     title: "Companies & Recruiters",
     description: "Hire pre-vetted talent trained on real engineering problems.",
     cta: "Hire From KodoWorks",
-    href: "#contact",
+    href: "/for-companies",
   },
 ];
 
@@ -451,26 +449,32 @@ export const certifications = [
   { issuer: "CNCF", name: "Official Content" },
 ];
 
+export const placedStudents = [
+  { name: "Sedhumadhavan", company: "TCS", logo: "/images/logos/tcs.png" },
+  { name: "Dinesh Kumar", company: "ExpertsPro", logo: "/images/logos/expertspro.svg" },
+  { name: "Kishore Kumar", company: "ExpertsPro", logo: "/images/logos/expertspro.svg" },
+];
+
 export const navLinks = [
-  { label: "Programs", href: "#programs" },
-  { label: "Why KodoWorks", href: "#why-kodoworks" },
-  { label: "For Students", href: "#audiences" },
-  { label: "For Professionals", href: "#audiences" },
-  { label: "For Colleges", href: "#audiences" },
-  { label: "For Companies", href: "#audiences" },
-  { label: "About", href: "#success" },
+  { label: "Programs", href: "/programs" },
+  { label: "Why KodoWorks", href: "/why-kodoworks" },
+  { label: "For Students", href: "/for-students" },
+  { label: "For Professionals", href: "/for-professionals" },
+  { label: "For Colleges", href: "/for-colleges" },
+  { label: "For Companies", href: "/for-companies" },
+  { label: "About", href: "/about" },
 ];
 
 export const footerLinks = {
   company: [
     { label: "About KodoWorks", href: "/about" },
     { label: "Careers", href: "/careers" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "Contact Us", href: "/contact" },
   ],
   institutions: [
-    { label: "Campus Connect (Colleges)", href: "#contact" },
-    { label: "Corporate Training", href: "#contact" },
-    { label: "Hire from Kodo", href: "#contact" },
+    { label: "Campus Connect (Colleges)", href: "/for-colleges" },
+    { label: "Corporate Training", href: "/for-companies" },
+    { label: "Hire from Kodo", href: "/for-companies" },
   ],
   programs: programs.map((p) => ({ label: p.shortName, href: `/courses/${p.slug}` })),
   legal: [
@@ -484,4 +488,120 @@ export const contactInfo = {
   address: "Bushido Towers, Coimbatore, India",
   phones: ["+91 89259 32839", "+91 89259 32841"],
   email: "contact@kodoworks.in",
+};
+
+export const deliveryModes = [
+  { title: "Class Room", description: "Interactive in-person training." },
+  { title: "Online Live", description: "Live sessions with expert trainers." },
+  { title: "Hybrid", description: "Best of both worlds." },
+];
+
+export const engagementModels = [
+  { title: "For Colleges", description: "Campus training, internships, student counselling." },
+  { title: "For Corporates", description: "Upskilling, workforce training, dedicated learning programs." },
+  { title: "Staff Augmentation", description: "Hire trained talent for your projects, on-demand." },
+];
+
+export type AudienceBenefit = { title: string; description: string };
+
+export const audiencePages: Record<
+  "students" | "professionals" | "colleges" | "corporates",
+  { eyebrow: string; title: string; subtitle: string; benefits: AudienceBenefit[] }
+> = {
+  students: {
+    eyebrow: "For Students",
+    title: "Build real engineering experience before you graduate.",
+    subtitle:
+      "A fellowship built for students who want to walk into their first job already having shipped software, not just studied it.",
+    benefits: [
+      {
+        title: "Live, Client-Modeled Projects",
+        description: "Work on problems modeled on real client engagements, not textbook exercises or sample datasets.",
+      },
+      {
+        title: "Mentorship at a 1:8 Ratio",
+        description: "Learn directly from working engineers who ship software professionally, with close, personal code review.",
+      },
+      {
+        title: "Portfolio-Ready by Graduation",
+        description: "Leave with deployed, demonstrable project work, not just a certificate.",
+      },
+      {
+        title: "A Transparent Path to Placement",
+        description: "A score-based, defined placement pathway, not a vague promise of assistance.",
+      },
+    ],
+  },
+  professionals: {
+    eyebrow: "For Working Professionals",
+    title: "Move into AI, Cloud, Data or Cybersecurity without pausing your career.",
+    subtitle:
+      "Online-live delivery built around a working schedule, so you can upskill into a new domain without stepping away from your job.",
+    benefits: [
+      {
+        title: "Move Without Pausing Your Career",
+        description: "Online-live sessions with expert trainers, scheduled around a working professional's day.",
+      },
+      {
+        title: "Curriculum Revised as Technology Changes",
+        description: "Built and updated continuously by practitioners, not on a fixed academic calendar.",
+      },
+      {
+        title: "A Portfolio You Can Show Today",
+        description: "Deployed, demonstrable project work you can put in front of a hiring manager immediately.",
+      },
+      {
+        title: "150+ Hiring Partners",
+        description: "Move into AI, Cloud, Data or Cybersecurity through an active network of 150+ hiring partners.",
+      },
+    ],
+  },
+  colleges: {
+    eyebrow: "For Colleges & Institutions",
+    title: "Build an industry-ready technology talent pipeline on campus.",
+    subtitle:
+      "Campus training, structured internships and student counselling, run by a practising technology company, not a training-only vendor.",
+    benefits: [
+      {
+        title: "Campus Training",
+        description: "Interactive, in-person delivery, run directly on campus by working engineers.",
+      },
+      {
+        title: "Structured Internships",
+        description: "A defined pipeline from coursework into real internship placements.",
+      },
+      {
+        title: "Student Counselling",
+        description: "One-on-one guidance helping students choose the right technology track for them.",
+      },
+      {
+        title: "A Measurable Placement Outcome",
+        description: "A 95% placement rate for fellows who complete the program, tracked and reported back to you.",
+      },
+    ],
+  },
+  corporates: {
+    eyebrow: "For Companies & Recruiters",
+    title: "Hire pre-vetted talent trained on real engineering problems.",
+    subtitle:
+      "Staff augmentation and workforce upskilling from a technology company that trains to a transparent, score-based readiness bar.",
+    benefits: [
+      {
+        title: "Pre-Vetted, Score-Gated Talent",
+        description: "Every fellow crosses a transparent readiness score before entering our hiring network.",
+      },
+      {
+        title: "Staff Augmentation, On-Demand",
+        description: "Hire trained talent for your projects on demand, without a lengthy ramp-up.",
+      },
+      {
+        title: "Workforce Upskilling",
+        description: "Dedicated learning programs to upskill your existing team in AI, Cloud, Data or Cybersecurity.",
+      },
+      {
+        title: "150+ Company Network",
+        description: "Join a network of 150+ hiring partners already recruiting from KodoWorks.",
+      },
+    ],
+  },
 };
