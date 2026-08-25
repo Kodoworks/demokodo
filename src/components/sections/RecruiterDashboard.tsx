@@ -2,6 +2,8 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import { AudienceBenefit } from "@/lib/data";
 
+const dotColors = ["bg-violet-500", "bg-amber-400", "bg-brand-500"];
+
 export default function RecruiterDashboard({ benefits }: { benefits: AudienceBenefit[] }) {
   return (
     <section className="py-10 sm:py-14">
@@ -28,7 +30,7 @@ export default function RecruiterDashboard({ benefits }: { benefits: AudienceBen
                       <span className="text-[10.5px] font-bold uppercase tracking-wide text-navy-400">
                         Benefit 0{i + 1}
                       </span>
-                      <span className="h-2 w-2 rounded-full bg-brand-500" />
+                      <span className={`h-2 w-2 rounded-full ${dotColors[i % dotColors.length]}`} />
                     </div>
                     <h3 className="font-display mt-3 text-[15.5px] font-semibold text-navy-950">{benefit.title}</h3>
                     <p className="mt-1.5 text-[13px] leading-relaxed text-navy-500">{benefit.description}</p>

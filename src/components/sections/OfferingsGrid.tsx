@@ -24,6 +24,14 @@ type OfferingsData = {
   items: { icon: OfferingIcon; title: string; description: string }[];
 };
 
+// Cycle the site's three accent hues instead of repeating one color across
+// every card — same trio/order as CertificationsRow's marquee badges.
+const accents = [
+  { bg: "bg-brand-500/10", text: "text-brand-500" },
+  { bg: "bg-violet-500/10", text: "text-violet-600" },
+  { bg: "bg-amber-500/15", text: "text-amber-600" },
+];
+
 export default function OfferingsGrid({ data = defaultData }: { data?: OfferingsData }) {
   return (
     <section className="py-14 sm:py-18 lg:py-20">
@@ -41,11 +49,12 @@ export default function OfferingsGrid({ data = defaultData }: { data?: Offerings
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {data.items.map((item, i) => {
             const Icon = iconMap[item.icon];
+            const accent = accents[i % accents.length];
             return (
               <Reveal key={item.title} delay={i * 50}>
                 <div className="h-full rounded-2xl border border-navy-900/[0.07] bg-white p-6 card-shadow transition-transform duration-300 hover:-translate-y-1">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10">
-                    <Icon className="h-5 w-5 text-brand-500" strokeWidth={2} />
+                  <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${accent.bg}`}>
+                    <Icon className={`h-5 w-5 ${accent.text}`} strokeWidth={2} />
                   </span>
                   <h3 className="font-display mt-5 text-[16px] font-semibold text-navy-950">{item.title}</h3>
                   <p className="mt-2 text-[13.5px] leading-relaxed text-navy-500">{item.description}</p>

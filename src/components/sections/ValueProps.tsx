@@ -13,6 +13,12 @@ const iconMap = {
   bookCheck: List,
 };
 
+const accents = [
+  { bg: "bg-brand-500/10", text: "text-brand-500" },
+  { bg: "bg-violet-500/10", text: "text-violet-600" },
+  { bg: "bg-amber-500/15", text: "text-amber-600" },
+];
+
 export default function ValueProps() {
   return (
     <section className="py-14 sm:py-18 lg:py-20">
@@ -35,12 +41,13 @@ export default function ValueProps() {
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {valueProps.map((item, i) => {
             const Icon = iconMap[item.icon as keyof typeof iconMap];
+            const accent = accents[i % accents.length];
             return (
               <Reveal key={item.title} delay={i * 50}>
                 <div className="h-full rounded-2xl border border-navy-900/[0.07] bg-white p-6 card-shadow transition-transform duration-300 hover:-translate-y-1">
                   <div className="flex items-start justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10">
-                      <Icon className="h-5 w-5 text-brand-500" strokeWidth={2} />
+                    <div className={`flex h-11 w-11 items-center justify-center rounded-xl ${accent.bg}`}>
+                      <Icon className={`h-5 w-5 ${accent.text}`} strokeWidth={2} />
                     </div>
                     <span className="text-[12px] font-medium text-navy-300">
                       {String(i + 1).padStart(2, "0")}

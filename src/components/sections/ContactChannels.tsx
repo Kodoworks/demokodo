@@ -12,6 +12,13 @@ function WhatsAppIcon() {
   );
 }
 
+const accents = [
+  { bg: "bg-violet-500/10", text: "text-violet-600" },
+  { bg: "bg-brand-500/10", text: "text-brand-500" },
+  { bg: "bg-amber-500/15", text: "text-amber-600" },
+  { bg: "bg-violet-500/10", text: "text-violet-600" },
+];
+
 export default function ContactChannels() {
   const whatsappNumber = contactInfo.phones[0].replace(/[^\d]/g, "");
 
@@ -49,10 +56,11 @@ export default function ContactChannels() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {channels.map((channel, i) => {
             const Icon = channel.icon;
+            const accent = accents[i % accents.length];
             const content = (
               <>
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10">
-                  <Icon className="h-[18px] w-[18px] text-brand-500" strokeWidth={2} />
+                <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${accent.bg}`}>
+                  <Icon className={`h-[18px] w-[18px] ${accent.text}`} strokeWidth={2} />
                 </span>
                 <p className="mt-4 text-[11px] font-semibold uppercase tracking-wide text-navy-400">
                   {channel.label}

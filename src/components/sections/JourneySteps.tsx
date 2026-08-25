@@ -12,6 +12,8 @@ const defaultData: JourneyData = {
   steps: studentJourney,
 };
 
+const accentBars = ["bg-brand-500", "bg-violet-500", "bg-amber-500"];
+
 export default function JourneySteps({ data = defaultData }: { data?: JourneyData }) {
   return (
     <section className="py-14 sm:py-18 lg:py-20">
@@ -35,7 +37,7 @@ export default function JourneySteps({ data = defaultData }: { data?: JourneyDat
             {data.steps.map((step, i) => (
               <div key={step.step} className="flex-1" style={{ marginBottom: i * 18 }}>
                 <div className="rounded-2xl border border-navy-900/[0.07] bg-white p-5 card-shadow">
-                  <div className="h-1 w-8 rounded-full bg-brand-500" />
+                  <div className={`h-1 w-8 rounded-full ${accentBars[i % accentBars.length]}`} />
                   <span className="font-display mt-4 block text-[1.6rem] font-bold leading-none text-navy-100">
                     {step.step}
                   </span>

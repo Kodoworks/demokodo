@@ -3,6 +3,8 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import { AudienceBenefit } from "@/lib/data";
 
+const badgeColors = ["bg-brand-500", "bg-violet-500", "bg-amber-500", "bg-brand-500"];
+
 export default function StudentAchievements({ benefits }: { benefits: AudienceBenefit[] }) {
   return (
     <section className="py-10 sm:py-14">
@@ -24,7 +26,7 @@ export default function StudentAchievements({ benefits }: { benefits: AudienceBe
               <div className="flex h-full flex-col items-center rounded-2xl border border-navy-900/[0.07] bg-white p-6 text-center card-shadow">
                 <div className="relative">
                   <div
-                    className="flex h-16 w-16 items-center justify-center bg-brand-500"
+                    className={`flex h-16 w-16 items-center justify-center ${badgeColors[i % badgeColors.length]}`}
                     style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }}
                   >
                     <Check className="h-6 w-6 text-white" strokeWidth={2.5} />

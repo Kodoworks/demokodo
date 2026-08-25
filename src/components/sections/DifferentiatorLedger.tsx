@@ -13,6 +13,12 @@ const iconMap = {
   bookCheck: List,
 };
 
+const accents = [
+  { bg: "bg-brand-500/10", text: "text-brand-500" },
+  { bg: "bg-violet-500/10", text: "text-violet-600" },
+  { bg: "bg-amber-500/15", text: "text-amber-600" },
+];
+
 export default function DifferentiatorLedger() {
   return (
     <section className="py-14 sm:py-18 lg:py-20">
@@ -36,6 +42,7 @@ export default function DifferentiatorLedger() {
           <div className="mt-10 overflow-hidden rounded-[28px] border border-navy-900/[0.07] bg-white card-shadow-lg">
             {valueProps.map((item, i) => {
               const Icon = iconMap[item.icon as keyof typeof iconMap];
+              const accent = accents[i % accents.length];
               return (
                 <div
                   key={item.title}
@@ -47,8 +54,8 @@ export default function DifferentiatorLedger() {
                     <span className="font-display text-[2.1rem] font-bold leading-none text-navy-100 sm:text-[2.5rem]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-500/10">
-                      <Icon className="h-5 w-5 text-brand-500" strokeWidth={2} />
+                    <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${accent.bg}`}>
+                      <Icon className={`h-5 w-5 ${accent.text}`} strokeWidth={2} />
                     </span>
                   </div>
                   <div>
