@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import PageIntro from "@/components/ui/PageIntro";
+import ApproachStatement from "@/components/sections/ApproachStatement";
+import CareerGrowthGains from "@/components/sections/CareerGrowthGains";
 import DifferentiatorLedger from "@/components/sections/DifferentiatorLedger";
 import VersusComparison from "@/components/sections/VersusComparison";
 import PlacementPathway from "@/components/sections/PlacementPathway";
@@ -24,6 +26,8 @@ export default function WhyKodoWorksPage() {
         }
         subtitle="Most training providers teach technology. KodoWorks practices it, and that difference shows up in every project, every mentor and every hiring conversation."
       />
+      <ApproachStatement />
+      <CareerGrowthGains />
       <DifferentiatorLedger />
       <VersusComparison />
       <PlacementPathway />

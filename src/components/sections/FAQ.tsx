@@ -1,14 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { Plus } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionTag from "@/components/ui/SectionTag";
 import Button from "@/components/ui/Button";
-import { faqs } from "@/lib/data";
+import { faqs as defaultFaqs } from "@/lib/data";
 
-export default function FAQ() {
+type FAQItem = { question: string; answer: string };
+
+export default function FAQ({
+  eyebrow = "FAQ",
+  title = (
+    <>
+      <span className="text-navy-950">Questions,</span> <span className="text-navy-300">answered.</span>
+    </>
+  ),
+  subtitle = "Still unsure about something? Talk to a mentor and we'll walk you through it.",
+  items = defaultFaqs,
+}: {
+  eyebrow?: string;
+  title?: ReactNode;
+  subtitle?: string;
+  items?: FAQItem[];
+}) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -16,18 +32,14 @@ export default function FAQ() {
       <Container>
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
           <div>
-            <SectionTag label="FAQ" />
+            <SectionTag label={eyebrow} />
             <Reveal delay={60}>
               <h2 className="font-display mt-4 text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
-                <span className="text-navy-950">Questions,</span>{" "}
-                <span className="text-navy-300">answered.</span>
+                {title}
               </h2>
             </Reveal>
             <Reveal delay={100}>
-              <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-navy-500">
-                Still unsure about something? Talk to a mentor and we&apos;ll walk
-                you through it.
-              </p>
+              <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-navy-500">{subtitle}</p>
             </Reveal>
             <Reveal delay={140}>
               <div className="mt-6">
@@ -39,7 +51,7 @@ export default function FAQ() {
           </div>
 
           <div className="flex flex-col gap-3">
-            {faqs.map((faq, i) => {
+            {items.map((faq, i) => {
               const isOpen = open === i;
               return (
                 <Reveal key={faq.question} delay={i * 40}>

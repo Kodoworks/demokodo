@@ -490,6 +490,33 @@ export const contactInfo = {
   email: "contact@kodoworks.in",
 };
 
+export const approachStatement = {
+  eyebrow: "Our Approach",
+  title: "More Than a Training Program",
+  subtitle: "A practical path towards your technology career.",
+  paragraphs: [
+    "KodoWorks is designed for learners who want to do more than simply complete a course. Our approach focuses on developing practical skills, professional confidence and a portfolio of work that demonstrates what you can do.",
+    "Whether you're a student starting your career, a professional looking to upskill or someone planning a career transition, KodoWorks provides a structured environment to help you move forward.",
+  ],
+};
+
+export const careerGrowthStatement = {
+  eyebrow: "The Outcome",
+  title: "Built for Real Career Growth",
+  subtitle: "Your learning should lead somewhere.",
+  intro:
+    "At KodoWorks, every program is designed with a clear purpose — helping you develop skills that are relevant beyond the classroom.",
+  gains: [
+    "Practical technology skills",
+    "Hands-on project experience",
+    "Guidance from industry professionals",
+    "A stronger professional portfolio",
+    "Improved problem-solving abilities",
+    "Career and interview preparation",
+    "Confidence to take the next step",
+  ],
+};
+
 export const deliveryModes = [
   { title: "Class Room", description: "Interactive in-person training." },
   { title: "Online Live", description: "Live sessions with expert trainers." },
@@ -605,3 +632,520 @@ export const audiencePages: Record<
     ],
   },
 };
+
+export const studentJourney = [
+  {
+    step: "01",
+    title: "Choose Your Path",
+    description: "Explore technology domains and choose a program aligned with your interests and career goals.",
+  },
+  {
+    step: "02",
+    title: "Learn the Fundamentals",
+    description: "Build a strong understanding of the core concepts and technologies required for your chosen path.",
+  },
+  {
+    step: "03",
+    title: "Build Real Projects",
+    description: "Put your learning into practice through hands-on projects and problem-solving.",
+  },
+  {
+    step: "04",
+    title: "Learn from Feedback",
+    description: "Work with mentors, improve your approach and strengthen your technical skills.",
+  },
+  {
+    step: "05",
+    title: "Build Your Portfolio",
+    description: "Organise your best work into a portfolio that demonstrates your practical capabilities.",
+  },
+  {
+    step: "06",
+    title: "Prepare for Opportunities",
+    description: "Develop interview confidence and prepare to take the next step in your technology career.",
+  },
+];
+
+export const studentPainPoints = {
+  eyebrow: "The Reality",
+  title: "College teaches the foundation. Experience builds confidence.",
+  rows: [
+    {
+      pain: "I know the theory, but I haven't built much.",
+      solution: "Work on practical projects and apply your skills.",
+    },
+    {
+      pain: "I don't know which technology career to choose.",
+      solution: "Explore structured pathways across in-demand domains.",
+    },
+    {
+      pain: "I don't have a strong portfolio.",
+      solution: "Build demonstrable projects throughout your journey.",
+    },
+    {
+      pain: "I'm nervous about technical interviews.",
+      solution: "Practice explaining your work and prepare for career opportunities.",
+    },
+    {
+      pain: "I need guidance from someone experienced.",
+      solution: "Learn with mentorship and regular feedback.",
+    },
+  ],
+};
+
+export const studentFaqs = [
+  {
+    question: "Can I join while I'm still studying?",
+    answer: "Yes. The program is designed to help students build practical skills alongside their academic journey.",
+  },
+  {
+    question: "Do I need previous industry experience?",
+    answer: "No. You start by building the right foundation and progress through practical learning and projects.",
+  },
+  {
+    question: "Which program should I choose?",
+    answer:
+      "Your choice depends on your interests, current skills and career goals. Our team can help you identify a suitable path.",
+  },
+  {
+    question: "Will I work on projects?",
+    answer: "Yes. Practical project work is an important part of the KodoWorks learning experience.",
+  },
+  {
+    question: "Can this help me build my portfolio?",
+    answer: "Yes. The goal is to help you create meaningful work that demonstrates your skills and learning.",
+  },
+];
+
+export const professionalApproach = {
+  eyebrow: "Our Approach",
+  title: "Your Next Career Move Starts Alongside Your Current One",
+  subtitle: "Upskill without stepping away.",
+  paragraphs: [
+    "Changing your career shouldn't mean starting over. Whether you're looking to move into a new technology domain, strengthen your current skills or prepare for better opportunities, KodoWorks helps you learn with a structure designed around a working professional's schedule.",
+    "You continue working. You keep learning. You build what's next.",
+  ],
+};
+
+export const professionalPainPoints = {
+  eyebrow: "The Reality",
+  title: "Ready for a Career Change, but Not Sure Where to Start?",
+  subtitle: "You may already have experience. What you need is a clear path towards your next opportunity.",
+  rows: [
+    {
+      pain: "I want to move into a better technology role.",
+      solution: "Build skills aligned with your target career path and create practical work that supports your transition.",
+    },
+    {
+      pain: "My current skills are becoming outdated.",
+      solution: "Stay closer to technologies and workflows that are relevant in today's technology environment.",
+    },
+    {
+      pain: "I don't know which domain is right for me.",
+      solution: "Explore the paths available and understand which direction fits your experience, interests and career goals.",
+    },
+    {
+      pain: "I can't leave my job to study full-time.",
+      solution: "Learn through a schedule designed to work alongside your professional commitments.",
+    },
+    {
+      pain: "I need proof of what I can do.",
+      solution: "Build projects and a portfolio that help demonstrate your practical capabilities.",
+    },
+  ],
+};
+
+export const professionalReasons = {
+  eyebrow: "The Benefits",
+  title: "Why Professionals Choose KodoWorks",
+  items: [
+    {
+      icon: "clock",
+      title: "Learn while you work",
+      description: "Continue building your career while preparing for the next stage.",
+    },
+    {
+      icon: "compass",
+      title: "Follow a clear path",
+      description: "Avoid random courses and build towards a defined career goal.",
+    },
+    {
+      icon: "users",
+      title: "Learn from practitioners",
+      description: "Gain guidance from professionals with real-world technology experience.",
+    },
+    {
+      icon: "code",
+      title: "Build practical experience",
+      description: "Apply your learning instead of only consuming theory.",
+    },
+    {
+      icon: "target",
+      title: "Prepare for opportunities",
+      description: "Strengthen your portfolio and career readiness for your next move.",
+    },
+    {
+      icon: "trending",
+      title: "Keep growing",
+      description: "Develop skills that can support your long-term technology career.",
+    },
+  ] as { icon: "clock" | "compass" | "users" | "code" | "target" | "trending"; title: string; description: string }[],
+};
+
+export const professionalFaqs = [
+  {
+    question: "Can I join while working full-time?",
+    answer:
+      "Yes. The learning structure is designed for working professionals, with live sessions scheduled around a typical workday.",
+  },
+  {
+    question: "Do I need experience in the technology domain I choose?",
+    answer: "Not always. The right starting point depends on the program and your current background.",
+  },
+  {
+    question: "How much time do I need to spend each week?",
+    answer:
+      "Your time commitment depends on the program, project work and your learning pace. The program structure is designed to fit alongside professional commitments.",
+  },
+  {
+    question: "Can I switch to a completely new technology domain?",
+    answer:
+      "Yes. If you're planning a career transition, the right program can help you build the knowledge and practical foundation required for a new direction.",
+  },
+  {
+    question: "Will I build projects?",
+    answer: "Yes. Practical project work should be a key part of your learning and portfolio development.",
+  },
+  {
+    question: "How do I choose the right program?",
+    answer:
+      "You can discuss your current experience, interests and career goals with the KodoWorks team before choosing a path.",
+  },
+];
+
+export const collegeStatement = {
+  eyebrow: "For Colleges & Institutions",
+  title: "Build industry readiness into the student journey.",
+  paragraphs: [
+    "Bridge the gap between academic learning and industry expectations with practical technology training, hands-on projects, structured internships and career guidance.",
+    "Partner with KodoWorks to help students graduate with stronger skills, practical exposure and greater career confidence.",
+  ],
+  ctas: [
+    { label: "Start a Partnership", href: "/contact", variant: "primary" as const },
+    { label: "Talk to Our Team", href: "/contact", variant: "outline-dark" as const },
+  ],
+};
+
+export const collegeChallenge = {
+  eyebrow: "The Challenge",
+  title: "Students have a degree. Industry expects experience.",
+  paragraphs: [
+    "Colleges play a critical role in building strong academic foundations. But today's technology industry also expects students to demonstrate practical skills, project experience and an understanding of real-world workflows.",
+    "The challenge is not simply teaching more. It's creating opportunities for students to apply what they learn.",
+    "KodoWorks helps institutions strengthen that connection between campus learning and industry readiness.",
+  ],
+};
+
+export const campusOfferings = {
+  eyebrow: "Campus Ecosystem",
+  title: "What We Bring to Your Campus",
+  subtitle: "A practical technology ecosystem for your students.",
+  items: [
+    {
+      icon: "code" as const,
+      title: "Industry-Relevant Training",
+      description: "Deliver structured technology programs designed around current skills, tools and real-world applications.",
+    },
+    {
+      icon: "wrench" as const,
+      title: "Hands-On Learning",
+      description: "Help students move beyond theory through practical assignments, challenges and project-based learning.",
+    },
+    {
+      icon: "users" as const,
+      title: "Industry Mentorship",
+      description: "Give students access to experienced technology professionals who can share practical insights and guidance.",
+    },
+    {
+      icon: "workflow" as const,
+      title: "Structured Internship Pathways",
+      description: "Create a clearer journey from learning and skill development towards internship opportunities and practical exposure.",
+    },
+    {
+      icon: "compass" as const,
+      title: "Career Counselling",
+      description: "Help students understand different technology domains and make more informed career decisions.",
+    },
+    {
+      icon: "award" as const,
+      title: "Placement Readiness",
+      description: "Support students with portfolio development, project presentation, technical preparation and career guidance.",
+    },
+  ],
+};
+
+export const institutionBenefits = {
+  eyebrow: "Institution Outcomes",
+  title: "Benefits for Your Institution",
+  subtitle: "Create stronger outcomes beyond the classroom.",
+  intro: "A KodoWorks partnership can help your institution:",
+  items: [
+    "Strengthen industry exposure for students",
+    "Add practical learning opportunities",
+    "Improve student career awareness",
+    "Support portfolio and project development",
+    "Create structured internship pathways",
+    "Connect students with industry perspectives",
+    "Build stronger technology communities on campus",
+    "Track learning and career-readiness outcomes",
+  ],
+};
+
+export const placementTeamSupport = {
+  eyebrow: "For Placement Teams",
+  title: "Give your placement team stronger career-ready talent.",
+  intro: "Students often need more than technical knowledge before they are ready to confidently approach opportunities.",
+  listIntro: "KodoWorks can help students prepare by focusing on:",
+  items: [
+    "Practical project experience",
+    "Technical skill development",
+    "Portfolio readiness",
+    "Understanding technology roles",
+    "Project presentation skills",
+    "Interview preparation",
+    "Career guidance",
+  ],
+  closing:
+    "This complements the institution's existing placement activities by helping students build stronger evidence of their skills.",
+};
+
+export const whyPartnerReasons = {
+  eyebrow: "The KodoWorks Difference",
+  title: "Why Partner with KodoWorks?",
+  subtitle: "Technology learning guided by real-world experience.",
+  intro: "KodoWorks positions itself as a practising technology company, rather than a training-only provider.",
+  items: [
+    {
+      title: "Practical Perspective",
+      description: "Learning designed around how technology is applied in professional environments.",
+    },
+    {
+      title: "Industry Guidance",
+      description: "Students gain exposure to professionals with experience in technology and engineering.",
+    },
+    {
+      title: "Structured Programs",
+      description: "Clear learning pathways instead of disconnected sessions.",
+    },
+    {
+      title: "Project-Focused Approach",
+      description: "Students get opportunities to apply concepts and build demonstrable work.",
+    },
+    {
+      title: "Measurable Progress",
+      description: "Track participation, learning activities and relevant program outcomes.",
+    },
+    {
+      title: "Flexible Partnership Models",
+      description: "Engagements can be designed around the institution's requirements and objectives.",
+    },
+  ],
+};
+
+export const collegeFaqs = [
+  {
+    question: "Who can partner with KodoWorks?",
+    answer:
+      "Engineering colleges, arts and science colleges, universities and other institutions looking to strengthen technology education and career readiness.",
+  },
+  {
+    question: "Can programs be customised for our students?",
+    answer:
+      "Yes. The engagement can be discussed and structured around your institution's student needs, technology interests and objectives.",
+  },
+  {
+    question: "Are the sessions conducted on campus?",
+    answer: "Campus-based delivery can be included as part of the partnership model.",
+  },
+  {
+    question: "Which students can participate?",
+    answer:
+      "Programs can be planned for students based on their academic level, existing knowledge and the technology pathway selected.",
+  },
+  {
+    question: "Can you support internships?",
+    answer:
+      "KodoWorks can provide a structured pathway to help students move from learning towards relevant practical and internship opportunities.",
+  },
+  {
+    question: "How do we start a partnership?",
+    answer: "Connect with the KodoWorks team to discuss your institution's requirements and possible engagement structure.",
+  },
+];
+
+export const companyStatement = {
+  eyebrow: "For Companies",
+  title: "Hire talent built for real-world technology roles.",
+  paragraphs: [
+    "Finding the right technology talent takes time. KodoWorks helps companies connect with skilled, project-ready candidates who have developed practical capabilities through structured learning and hands-on work.",
+    "Build your next talent pipeline with candidates prepared for the skills your teams need.",
+  ],
+  ctas: [
+    { label: "Hire Talent", href: "/contact", variant: "primary" as const },
+    { label: "Partner with KodoWorks", href: "/contact", variant: "outline-dark" as const },
+  ],
+};
+
+export const companyHiringChallenge = {
+  eyebrow: "The Hiring Challenge",
+  title: "Hiring potential is easy. Finding proof is harder.",
+  paragraphs: [
+    "A resume can tell you what a candidate has studied. A real project can show you what they can do.",
+    "For growing technology teams, reviewing hundreds of applications, assessing skills and identifying the right candidates can take significant time and effort.",
+    "KodoWorks helps simplify the process by creating a pathway between trained technology talent and companies looking to hire.",
+  ],
+};
+
+export const companyOfferings = {
+  eyebrow: "What Companies Get",
+  title: "What Companies Get",
+  subtitle: "A more focused way to discover technology talent.",
+  items: [
+    {
+      icon: "users" as const,
+      title: "Access to Emerging Talent",
+      description: "Connect with candidates building skills across high-demand technology domains.",
+    },
+    {
+      icon: "code" as const,
+      title: "Project-Based Profiles",
+      description: "Review candidates with practical project experience and demonstrable work.",
+    },
+    {
+      icon: "compass" as const,
+      title: "Relevant Technology Skills",
+      description: "Explore talent across domains aligned with modern technology and business requirements.",
+    },
+    {
+      icon: "filter" as const,
+      title: "Reduced Initial Screening",
+      description: "Spend less time reviewing unsuitable applications and focus on candidates relevant to your hiring needs.",
+    },
+    {
+      icon: "target" as const,
+      title: "Role-Based Talent Matching",
+      description: "Share your requirements and connect with candidates whose skills align with the opportunities available.",
+    },
+    {
+      icon: "trending" as const,
+      title: "A Growing Talent Pipeline",
+      description: "Build an ongoing relationship with a technology talent ecosystem instead of starting every hiring cycle from zero.",
+    },
+  ],
+};
+
+export const companyHiringJourney = {
+  eyebrow: "The Process",
+  title: "From Requirement to Interview",
+  subtitle: "A simpler path to discovering the right talent.",
+  steps: [
+    {
+      step: "01",
+      title: "Share Your Requirements",
+      description: "Tell us about your open roles, required skills and the type of talent you are looking for.",
+    },
+    {
+      step: "02",
+      title: "Define the Candidate Profile",
+      description: "We understand the technical skills, experience level and project exposure relevant to your team.",
+    },
+    {
+      step: "03",
+      title: "Discover Relevant Talent",
+      description: "Connect with candidates from relevant technology pathways based on your hiring requirements.",
+    },
+    {
+      step: "04",
+      title: "Review Project Experience",
+      description: "Explore candidate profiles, skills and practical work before moving forward.",
+    },
+    {
+      step: "05",
+      title: "Interview Selected Candidates",
+      description: "Shortlist suitable candidates and take them through your existing interview process.",
+    },
+    {
+      step: "06",
+      title: "Build Your Talent Pipeline",
+      description: "Continue connecting with future talent as your hiring requirements grow.",
+    },
+  ],
+};
+
+export const companyPartnerBenefits = {
+  eyebrow: "The KodoWorks Difference",
+  title: "Why Partner with KodoWorks?",
+  subtitle: "Because better hiring starts before the interview.",
+  paragraphs: [
+    "We believe the strongest technology talent is built through continuous learning, practical experience and exposure to real-world expectations.",
+    "A KodoWorks partnership gives companies an opportunity to connect with candidates who are actively building their skills and preparing for technology careers.",
+  ],
+  intro: "Partner benefits:",
+  items: [
+    "Access to an emerging technology talent ecosystem",
+    "Candidates with practical project experience",
+    "Support for role-based talent discovery",
+    "Reduced initial screening effort",
+    "Opportunities to build a future hiring pipeline",
+    "Access across multiple technology domains",
+    "Industry engagement and collaboration opportunities",
+  ],
+};
+
+export const hiringManagerSupport = {
+  eyebrow: "For Hiring Managers",
+  title: "Focus on conversations, not just CVs.",
+  intro: "The hiring process becomes more effective when you can understand what a candidate has actually built.",
+  listIntro:
+    "KodoWorks encourages a practical approach to talent evaluation, helping companies explore candidates through:",
+  items: [
+    "Technology skills and learning pathways",
+    "Practical project work",
+    "Portfolio demonstrations",
+    "Problem-solving approaches",
+    "Technical discussions",
+    "Role-relevant capabilities",
+  ],
+  closing: "This gives your hiring team more context before the interview process begins.",
+};
+
+export const companyFaqs = [
+  {
+    question: "What types of companies can partner with KodoWorks?",
+    answer:
+      "Technology companies, startups, enterprises and organisations with technology hiring or talent development requirements can explore a partnership.",
+  },
+  {
+    question: "Can we hire for specific technology roles?",
+    answer:
+      "Yes. Companies can share their requirements, and relevant talent pathways can be explored based on the role and required skills.",
+  },
+  {
+    question: "Are candidates experienced professionals?",
+    answer:
+      "The talent ecosystem can include students, fresh graduates and working professionals, depending on the program and hiring requirement.",
+  },
+  {
+    question: "Can we build an ongoing hiring partnership?",
+    answer: "Yes. Companies can explore a long-term partnership to build a continuing technology talent pipeline.",
+  },
+  {
+    question: "Can our company participate in mentorship or industry sessions?",
+    answer:
+      "Yes. Industry professionals can potentially contribute through mentorship, technology talks and knowledge-sharing initiatives.",
+  },
+  {
+    question: "How do we get started?",
+    answer: "Connect with the KodoWorks team and share your company's hiring or partnership requirements.",
+  },
+];

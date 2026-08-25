@@ -1,8 +1,24 @@
 import type { Metadata } from "next";
 import PageIntro from "@/components/ui/PageIntro";
+import StatementBlock from "@/components/sections/StatementBlock";
+import ChallengeStatement from "@/components/sections/ChallengeStatement";
+import OfferingsGrid from "@/components/sections/OfferingsGrid";
+import JourneySteps from "@/components/sections/JourneySteps";
+import BenefitsPanel from "@/components/sections/BenefitsPanel";
+import SplitChecklist from "@/components/sections/SplitChecklist";
 import RecruiterDashboard from "@/components/sections/RecruiterDashboard";
+import FAQ from "@/components/sections/FAQ";
 import FinalCta from "@/components/sections/FinalCta";
-import { audiencePages } from "@/lib/data";
+import {
+  audiencePages,
+  companyStatement,
+  companyHiringChallenge,
+  companyOfferings,
+  companyHiringJourney,
+  companyPartnerBenefits,
+  hiringManagerSupport,
+  companyFaqs,
+} from "@/lib/data";
 
 const content = audiencePages.corporates;
 
@@ -15,7 +31,23 @@ export default function ForCompaniesPage() {
   return (
     <main>
       <PageIntro eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle} />
+      <StatementBlock data={companyStatement} />
+      <ChallengeStatement data={companyHiringChallenge} />
+      <OfferingsGrid data={companyOfferings} />
+      <JourneySteps data={companyHiringJourney} />
+      <BenefitsPanel data={companyPartnerBenefits} />
+      <SplitChecklist data={hiringManagerSupport} />
       <RecruiterDashboard benefits={content.benefits} />
+      <FAQ
+        eyebrow="Company Partnership FAQ"
+        title={
+          <>
+            <span className="text-navy-950">Company Partnership</span> <span className="text-navy-300">FAQ.</span>
+          </>
+        }
+        subtitle="Still have questions about a partnership? Talk to our team directly."
+        items={companyFaqs}
+      />
       <FinalCta />
     </main>
   );
