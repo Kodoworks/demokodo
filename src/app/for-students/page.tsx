@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageIntro from "@/components/ui/PageIntro";
-import StudentAchievements from "@/components/sections/StudentAchievements";
+import StudentsVisual from "@/components/sections/StudentsVisual";
+import FellowshipOverview from "@/components/sections/FellowshipOverview";
 import JourneySteps from "@/components/sections/JourneySteps";
 import PainSolutionRows from "@/components/sections/PainSolutionRows";
 import FAQ from "@/components/sections/FAQ";
@@ -17,8 +18,13 @@ export const metadata: Metadata = {
 export default function ForStudentsPage() {
   return (
     <main>
-      <PageIntro eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle} />
-      <StudentAchievements benefits={content.benefits} />
+      <PageIntro
+        eyebrow={content.eyebrow}
+        title={content.title}
+        subtitle={content.subtitle}
+        visual={<StudentsVisual />}
+      />
+      <FellowshipOverview />
       <JourneySteps />
       <PainSolutionRows />
       <FAQ

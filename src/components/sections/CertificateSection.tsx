@@ -1,8 +1,8 @@
-import { Check, Star } from "lucide-react";
+import Image from "next/image";
+import { Check } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionTag from "@/components/ui/SectionTag";
-import Logo from "@/components/ui/Logo";
 
 const points = [
   "Verifiable credential with a unique certificate ID",
@@ -38,30 +38,15 @@ export default function CertificateSection() {
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="relative mx-auto w-full max-w-[400px] rotate-[1.5deg] rounded-2xl bg-white p-6 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.5)] sm:p-7">
-              <div className="flex items-center justify-between">
-                <Logo />
-                <span className="font-mono text-[10px] text-navy-300">ID · KW-AI-2026-0042</span>
-              </div>
-              <p className="mt-6 text-[11px] font-bold uppercase tracking-wide text-brand-500">
-                Certificate of Completion
-              </p>
-              <p className="mt-2 text-[13px] text-navy-400">This certifies that</p>
-              <p className="font-display mt-1 text-[26px] font-semibold text-navy-950">Your Name Here</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-navy-500">
-                has successfully completed the{" "}
-                <span className="font-semibold text-navy-800">AI Engineering &amp; Machine Learning</span>{" "}
-                Fellowship, including 5 deployed production projects.
-              </p>
-              <div className="mt-8 flex items-end justify-between">
-                <div>
-                  <div className="h-px w-32 bg-navy-300" />
-                  <p className="mt-1.5 text-[11px] text-navy-400">Director, KodoWorks Engineering</p>
-                </div>
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-amber-400">
-                  <Star className="h-5 w-5 fill-navy-950 text-navy-950" />
-                </div>
-              </div>
+            <div className="relative mx-auto w-full max-w-[480px]">
+              <Image
+                src="/certificatekodo.png"
+                alt="A framed KodoWorks certificate of completion"
+                width={1448}
+                height={1086}
+                sizes="(min-width: 1024px) 480px, 90vw"
+                className="h-auto w-full rounded-2xl"
+              />
             </div>
           </Reveal>
         </div>

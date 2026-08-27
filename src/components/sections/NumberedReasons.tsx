@@ -31,7 +31,7 @@ export default function NumberedReasons() {
                   i !== 0 ? "border-t border-navy-900/[0.06]" : ""
                 } ${i % 2 === 1 ? "bg-navy-50/60" : ""}`}
               >
-                <span className="font-display shrink-0 text-[1.5rem] font-bold leading-none text-navy-100 sm:w-[70px] sm:text-[1.8rem]">
+                <span className="font-display shrink-0 text-[1.5rem] font-bold leading-none text-navy-300 sm:w-[70px] sm:text-[1.8rem]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>

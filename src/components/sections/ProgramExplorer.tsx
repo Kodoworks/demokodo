@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { BarChart3, Brain, Check, Cloud, Code2, ShieldCheck, Sparkles, Workflow } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
@@ -32,8 +33,30 @@ const catStyles: Record<Program["catColor"], { bg: string; bgLight: string; text
 
 export default function ProgramExplorer() {
   const [active, setActive] = useState(0);
+  const [bannerPhotoFailed, setBannerPhotoFailed] = useState(false);
+  const bannerImgRef = useRef<HTMLImageElement>(null);
   const program = programs[active];
   const style = catStyles[program.catColor];
+  const ActiveIcon = iconMap[program.icon];
+
+  // Reset the "no photo yet" fallback whenever the tab changes, so each
+  // program tries its own photo instead of inheriting the previous tab's
+  // load failure.
+  useEffect(() => {
+    setBannerPhotoFailed(false);
+  }, [program.slug]);
+
+  // Local dev/SSR can resolve a missing static file fast enough that the
+  // native <img> "error" event fires before React finishes hydrating and
+  // attaches the onError listener — the event is lost and onError never
+  // runs. This runs after every render and catches that already-failed
+  // state via `complete`/`naturalWidth`, as a backstop alongside onError.
+  useEffect(() => {
+    const img = bannerImgRef.current;
+    if (img && img.complete && img.naturalWidth === 0 && !bannerPhotoFailed) {
+      setBannerPhotoFailed(true);
+    }
+  });
 
   return (
     <section id="programs" className="scroll-mt-24 py-14 sm:py-18 lg:py-20">
@@ -78,18 +101,46 @@ export default function ProgramExplorer() {
 
             {/* Detail panel */}
             <div className="overflow-hidden rounded-[28px] border border-navy-900/[0.07] bg-white card-shadow-lg">
-              <div className={`h-1.5 ${style.bg}`} />
+              {/* Course banner — tries a real photo per program first
+                  (public/images/programs/<slug>.jpg); if that file is
+                  missing it falls back to a color + icon watermark built
+                  from the program's own data, so nothing breaks either
+                  way. Uses next/image so these (large, uncompressed
+                  source) photos get resized/compressed instead of
+                  shipping the raw multi-MB files to the browser. */}
+              <div className={`relative h-[160px] overflow-hidden sm:h-[200px] ${style.bg}`}>
+                {!bannerPhotoFailed ? (
+                  <Image
+                    ref={bannerImgRef}
+                    src={`/images/programs/${program.slug}.jpg`}
+                    alt=""
+                    fill
+                    priority={active === 0}
+                    sizes="(min-width: 1024px) 900px, 100vw"
+                    onError={() => setBannerPhotoFailed(true)}
+                    className="object-cover"
+                  />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-dots opacity-25" />
+                    <ActiveIcon
+                      className="absolute -right-8 -top-8 h-[220px] w-[220px] text-white/10 sm:h-[260px] sm:w-[260px]"
+                      strokeWidth={1}
+                    />
+                  </>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-navy-950/0" />
+                <div className="relative flex h-full flex-col justify-end p-6 sm:p-8">
+                  <span className="inline-flex w-fit items-center rounded-full bg-white/20 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white backdrop-blur-sm">
+                    {program.category}
+                  </span>
+                  <h2 className="font-display mt-3 text-[1.7rem] font-semibold leading-tight text-white sm:text-[2.2rem]">
+                    {program.name}
+                  </h2>
+                </div>
+              </div>
               <div className="p-6 sm:p-9 lg:p-10">
-                <span
-                  className={`inline-flex items-center rounded-full ${style.bgLight} px-3 py-1 text-[11px] font-bold uppercase tracking-wide ${style.text}`}
-                >
-                  {program.category}
-                </span>
-
-                <h2 className="font-display mt-5 text-[1.9rem] font-semibold leading-tight text-navy-950 sm:text-[2.3rem]">
-                  {program.name}
-                </h2>
-                <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-navy-500">{program.tagline}</p>
+                <p className="max-w-xl text-[15px] leading-relaxed text-navy-500">{program.tagline}</p>
                 <p className="mt-1 text-[13px] text-navy-400">Ideal for: {program.idealFor}</p>
 
                 <div className="mt-7 flex flex-wrap gap-x-9 gap-y-4">

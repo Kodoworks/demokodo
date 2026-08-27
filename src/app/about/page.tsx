@@ -5,6 +5,7 @@ import DifferentiatorLedger from "@/components/sections/DifferentiatorLedger";
 import Mentors from "@/components/sections/Mentors";
 import PlacementPathway from "@/components/sections/PlacementPathway";
 import FinalCta from "@/components/sections/FinalCta";
+import PageIntroAbout from "@/components/sections/PageIntroAbout";
 
 export const metadata: Metadata = {
   title: "About KodoWorks",
@@ -15,16 +16,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main>
-      <PageIntro
-        eyebrow="About KodoWorks"
-        title={
-          <>
-            <span className="text-navy-950">A technology company,</span>{" "}
-            <span className="text-navy-300">not a training brand.</span>
-          </>
-        }
-        subtitle="KodoWorks is a technology-driven learning and workforce transformation company dedicated to bridging the gap between academia and industry. We equip students, graduates and working professionals with practical, project-based training aligned with real-world business requirements, preparing them for successful careers in today's digital economy."
-      />
+      <PageIntroAbout />
       <CompanyProfile />
       <DifferentiatorLedger />
       <Mentors />

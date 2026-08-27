@@ -42,9 +42,9 @@ export default function PainSolutionRows({ data = defaultData }: { data?: PainSo
                   </span>
                 </div>
 
-                <div className="flex items-start gap-2.5 rounded-2xl border border-brand-500/20 bg-brand-500/[0.06] p-5">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" strokeWidth={2.5} />
-                  <p className="text-[14px] font-medium leading-relaxed text-navy-800">{row.solution}</p>
+                <div className="flex items-start gap-2.5 rounded-2xl bg-navy-950 p-5">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" strokeWidth={2.5} />
+                  <p className="text-[14px] font-medium leading-relaxed text-white">{row.solution}</p>
                 </div>
               </div>
             </Reveal>

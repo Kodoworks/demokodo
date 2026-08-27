@@ -1,3 +1,4 @@
+import { Briefcase, Code2, Compass, FolderGit2, MessageSquare, BookOpen } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionTag from "@/components/ui/SectionTag";
@@ -12,7 +13,14 @@ const defaultData: JourneyData = {
   steps: studentJourney,
 };
 
-const accentBars = ["bg-brand-500", "bg-violet-500", "bg-amber-500"];
+// One icon per step, in studentJourney's order.
+const stepIcons = [Compass, BookOpen, Code2, MessageSquare, FolderGit2, Briefcase];
+
+const accents = [
+  { ring: "border-brand-500", bg: "bg-brand-500", text: "text-brand-600" },
+  { ring: "border-violet-500", bg: "bg-violet-500", text: "text-violet-600" },
+  { ring: "border-amber-500", bg: "bg-amber-500", text: "text-amber-600" },
+];
 
 export default function JourneySteps({ data = defaultData }: { data?: JourneyData }) {
   return (
@@ -30,24 +38,35 @@ export default function JourneySteps({ data = defaultData }: { data?: JourneyDat
           </Reveal>
         )}
 
-        {/* Ascending staircase on desktop — each step sits a little higher
-            than the last, reading as visible progress left to right. */}
+        {/* Connected timeline on desktop — a through-line linking numbered
+            icon nodes, each with its own accent color. */}
         <Reveal delay={100}>
-          <div className="mt-12 hidden items-end gap-4 lg:flex">
-            {data.steps.map((step, i) => (
-              <div key={step.step} className="flex-1" style={{ marginBottom: i * 18 }}>
-                <div className="rounded-2xl border border-navy-900/[0.07] bg-white p-5 card-shadow">
-                  <div className={`h-1 w-8 rounded-full ${accentBars[i % accentBars.length]}`} />
-                  <span className="font-display mt-4 block text-[1.6rem] font-bold leading-none text-navy-100">
-                    {step.step}
-                  </span>
-                  <h3 className="font-display mt-3 text-[14.5px] font-semibold leading-snug text-navy-950">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-[12px] leading-relaxed text-navy-500">{step.description}</p>
-                </div>
-              </div>
-            ))}
+          <div className="relative mt-14 hidden lg:block">
+            <div className="absolute left-0 right-0 top-6 h-px bg-navy-200" />
+            <div className="grid grid-cols-6 gap-5">
+              {data.steps.map((step, i) => {
+                const Icon = stepIcons[i % stepIcons.length];
+                const accent = accents[i % accents.length];
+                return (
+                  <div key={step.step} className="flex flex-col">
+                    <span
+                      className={`relative z-10 mb-5 flex h-12 w-12 items-center justify-center rounded-full border-2 bg-white ${accent.ring}`}
+                    >
+                      <Icon className={`h-5 w-5 ${accent.text}`} strokeWidth={2} />
+                    </span>
+                    <div className="flex-1 rounded-2xl border border-navy-900/[0.07] bg-white p-4 card-shadow">
+                      <span className={`text-[11px] font-bold uppercase tracking-wide ${accent.text}`}>
+                        Step {step.step}
+                      </span>
+                      <h3 className="font-display mt-1.5 text-[14px] font-semibold leading-snug text-navy-950">
+                        {step.title}
+                      </h3>
+                      <p className="mt-2 text-[12px] leading-relaxed text-navy-500">{step.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </Reveal>
 

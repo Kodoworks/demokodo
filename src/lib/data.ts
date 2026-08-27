@@ -319,16 +319,17 @@ export type Mentor = {
   role: string;
   domain: string;
   icon: "brain" | "code" | "workflow" | "chart" | "shield";
+  photo: string;
 };
 
 export const mentorProfiles: Mentor[] = [
-  { name: "Noble", role: "AI/ML Engineer", domain: "AI & Machine Learning", icon: "brain" },
-  { name: "Vasanth D", role: "Java Architect (USA)", domain: "Java Full Stack Development", icon: "code" },
-  { name: "Pavi A", role: "ServiceNow Consultant", domain: "ServiceNow Admin & Developer", icon: "workflow" },
-  { name: "Mari S", role: "Manager, ServiceNow", domain: "ServiceNow Admin & Developer", icon: "workflow" },
-  { name: "Manoj M", role: "Data Architect", domain: "Data Intelligence & Engineering", icon: "chart" },
-  { name: "Divesh", role: "Senior Data Engineer", domain: "Data Intelligence & Engineering", icon: "chart" },
-  { name: "Arun A", role: "Cybersecurity Engineer", domain: "Cybersecurity", icon: "shield" },
+  { name: "Noble", role: "AI/ML Engineer", domain: "AI & Machine Learning", icon: "brain", photo: "/images/mentors/mentor-noble.jpg" },
+  { name: "Vasanth", role: "Java Architect (USA)", domain: "Java Full Stack Development", icon: "code", photo: "/images/mentors/mentor-vasanth.jpg" },
+  { name: "Pavi", role: "ServiceNow Consultant", domain: "ServiceNow Admin & Developer", icon: "workflow", photo: "/images/mentors/mentor-pavi.jpg" },
+  { name: "Mari", role: "Manager, ServiceNow", domain: "ServiceNow Admin & Developer", icon: "workflow", photo: "/images/mentors/mentor-mari.jpg" },
+  { name: "Manoj", role: "Data Architect", domain: "Data Intelligence & Engineering", icon: "chart", photo: "/images/mentors/mentor-manoj.jpg" },
+  { name: "Divesh", role: "Senior Data Engineer", domain: "Data Intelligence & Engineering", icon: "chart", photo: "/images/mentors/mentor-divesh.jpg" },
+  { name: "Arun", role: "Cybersecurity Engineer", domain: "Cybersecurity", icon: "shield", photo: "/images/mentors/mentor-arun.jpg" },
 ];
 
 export const projectShowcase = [
@@ -456,6 +457,7 @@ export const placedStudents = [
 ];
 
 export const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Programs", href: "/programs" },
   { label: "Why KodoWorks", href: "/why-kodoworks" },
   { label: "For Students", href: "/for-students" },
@@ -1148,4 +1150,13 @@ export const companyFaqs = [
     question: "How do we get started?",
     answer: "Connect with the KodoWorks team and share your company's hiring or partnership requirements.",
   },
+];
+
+// Same four facts StatsBar already shows on the homepage — reused as the
+// canonical figures for every page's metric strip, so numbers never drift.
+export const coreMetrics = [
+  { value: "7", label: "Fellowship Programs" },
+  { value: "1:8", label: "Mentor-to-Fellow Ratio" },
+  { value: "150+", label: "Hiring Partners" },
+  { value: "95%", label: "Placement Rate" },
 ];

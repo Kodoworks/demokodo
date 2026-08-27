@@ -4,14 +4,6 @@ import Container from "@/components/ui/Container";
 import SectionTag from "@/components/ui/SectionTag";
 import Logo from "@/components/ui/Logo";
 
-const FELLOW_AVATARS = [
-  { src: "/images/hero/avatar-fellow-1.jpg", position: "25% 22%" },
-  { src: "/images/hero/avatar-fellow-2.jpg", position: "50% 30%" },
-  { src: "/images/hero/avatar-fellow-3.jpg", position: "72% 42%" },
-  { src: "/images/hero/avatar-fellow-4.jpg", position: "80% 28%" },
-  { src: "/images/hero/avatar-fellow-5.jpg", position: "20% 65%" },
-];
-
 export default function Hero() {
   return (
     <section id="top" className="relative pb-14 pt-10 sm:pb-16 sm:pt-12 lg:pb-20 lg:pt-14">
@@ -29,36 +21,27 @@ export default function Hero() {
             individuals, institutions, and enterprises.
           </p>
 
-          <div className="mt-7 flex items-center gap-3">
-            <div className="flex -space-x-3">
-              {FELLOW_AVATARS.map((avatar, i) => (
-                <span
-                  key={i}
-                  className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full ring-2 ring-white"
-                >
-                  <Image
-                    src={avatar.src}
-                    alt=""
-                    fill
-                    sizes="40px"
-                    className="object-cover"
-                    style={{ objectPosition: avatar.position }}
-                  />
-                </span>
-              ))}
-            </div>
-            <p className="text-[13px] font-medium text-navy-500">
-              Trusted by fellows across 7 fellowship programs.
-            </p>
-          </div>
         </div>
 
         {/* Right: poster card */}
         <div className="relative mx-auto w-full max-w-[440px] lg:mx-0 lg:ml-auto">
-          <div className="gradient-black relative overflow-hidden rounded-[28px] p-5 shadow-[0_30px_60px_-20px_rgba(20,21,26,0.5)] sm:p-6">
+          <div className="gradient-black relative overflow-hidden rounded-[28px] shadow-[0_30px_60px_-20px_rgba(20,21,26,0.5)]">
             <div className="pointer-events-none absolute inset-0 bg-dots opacity-60" />
 
-            <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-white/[0.06] p-5">
+            {/* Real photo, edge to edge — the card had no photography at all before this */}
+            <div className="relative h-[140px] w-full overflow-hidden sm:h-[160px]">
+              <Image
+                src="/images/hero/hero-poster-fellows.jpg"
+                alt="Fellows working together at KodoWorks"
+                fill
+                sizes="440px"
+                className="object-cover"
+                style={{ objectPosition: "center 25%" }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#14151a]" />
+            </div>
+
+            <div className="relative -mt-8 overflow-hidden rounded-2xl border border-white/15 bg-white/[0.06] p-5 mx-5 mb-5 sm:mx-6 sm:mb-6">
               <div className="flex items-center gap-2">
                 <Logo dark />
               </div>

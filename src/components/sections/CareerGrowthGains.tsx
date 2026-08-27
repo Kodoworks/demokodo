@@ -1,11 +1,14 @@
-import { Check } from "lucide-react";
+import { Award, Code2, Layers, Lightbulb, MessageSquare, Rocket, Users } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionTag from "@/components/ui/SectionTag";
 import { careerGrowthStatement } from "@/lib/data";
 
-const pillColors = [
-  { bg: "bg-brand-500/10", text: "text-brand-700" },
+// One icon per gain, in the order careerGrowthStatement.gains lists them.
+const gainIcons = [Code2, Layers, Users, Award, Lightbulb, MessageSquare, Rocket];
+
+const accents = [
+  { bg: "bg-brand-500/10", text: "text-brand-600" },
   { bg: "bg-violet-500/10", text: "text-violet-600" },
   { bg: "bg-amber-500/15", text: "text-amber-600" },
 ];
@@ -32,22 +35,22 @@ export default function CareerGrowthGains() {
         </Reveal>
 
         <Reveal delay={180}>
-          <div className="mt-9 rounded-[28px] border border-navy-900/[0.07] bg-white p-7 card-shadow-lg sm:p-9">
-            <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-navy-400">You gain</p>
-            <div className="mt-5 flex flex-wrap gap-2.5">
-              {careerGrowthStatement.gains.map((gain, i) => {
-                const color = pillColors[i % pillColors.length];
-                return (
-                  <span
-                    key={gain}
-                    className={`inline-flex items-center gap-2 rounded-full ${color.bg} px-4 py-2 text-[13.5px] font-semibold ${color.text}`}
-                  >
-                    <Check className="h-3.5 w-3.5 shrink-0" strokeWidth={2.5} />
-                    {gain}
+          <div className="mt-9 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:grid-cols-4">
+            {careerGrowthStatement.gains.map((gain, i) => {
+              const Icon = gainIcons[i % gainIcons.length];
+              const accent = accents[i % accents.length];
+              return (
+                <div
+                  key={gain}
+                  className="flex flex-col gap-3.5 rounded-2xl border border-navy-900/[0.07] bg-white p-4 card-shadow transition-transform duration-300 hover:-translate-y-1 sm:p-5"
+                >
+                  <span className={`flex h-9 w-9 items-center justify-center rounded-xl ${accent.bg}`}>
+                    <Icon className={`h-4 w-4 ${accent.text}`} strokeWidth={2} />
                   </span>
-                );
-              })}
-            </div>
+                  <p className="text-[13.5px] font-semibold leading-snug text-navy-900">{gain}</p>
+                </div>
+              );
+            })}
           </div>
         </Reveal>
       </Container>

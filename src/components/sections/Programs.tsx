@@ -1,4 +1,5 @@
 import { ArrowUpRight, Star } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
@@ -86,18 +87,33 @@ export default function Programs() {
               </div>
             </div>
 
-            <div className="bg-navy-950 p-7 sm:p-9">
-              <p className="text-[11px] font-semibold uppercase tracking-wide text-white/40">
-                Curriculum Highlights
-              </p>
-              <ul className="mt-5 flex flex-col gap-4">
-                {featured.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-[14px] leading-relaxed text-white/85">
-                    <span className="mt-0.5 text-brand-400">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
+            <div className="relative bg-navy-950">
+              {/* Real photo band, same construction as the Hero poster card */}
+              <div className="relative h-[150px] w-full overflow-hidden sm:h-[170px]">
+                <Image
+                  src="/images/hero/hero-poster-fellows.jpg"
+                  alt="KodoWorks fellows working on a live project"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                  style={{ objectPosition: "center 25%" }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/15 to-transparent" />
+              </div>
+
+              <div className="p-7 pt-6 sm:p-9 sm:pt-7">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-white/40">
+                  Curriculum Highlights
+                </p>
+                <ul className="mt-5 flex flex-col gap-4">
+                  {featured.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-[14px] leading-relaxed text-white/85">
+                      <span className="mt-0.5 text-brand-400">✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </Reveal>

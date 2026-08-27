@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Grid2x2, LayoutGrid, TrendingUp, Users } from "lucide-react";
 import PageIntro from "@/components/ui/PageIntro";
+import MetricStrip from "@/components/sections/MetricStrip";
 import StatementBlock from "@/components/sections/StatementBlock";
 import ChallengeStatement from "@/components/sections/ChallengeStatement";
 import OfferingsGrid from "@/components/sections/OfferingsGrid";
@@ -18,9 +20,16 @@ import {
   companyPartnerBenefits,
   hiringManagerSupport,
   companyFaqs,
+  coreMetrics,
 } from "@/lib/data";
 
 const content = audiencePages.corporates;
+const metrics = [
+  { icon: Grid2x2, ...coreMetrics[0] },
+  { icon: Users, ...coreMetrics[1] },
+  { icon: LayoutGrid, ...coreMetrics[2] },
+  { icon: TrendingUp, ...coreMetrics[3] },
+];
 
 export const metadata: Metadata = {
   title: "For Companies & Recruiters — KodoWorks",
@@ -30,8 +39,10 @@ export const metadata: Metadata = {
 export default function ForCompaniesPage() {
   return (
     <main>
-      <PageIntro eyebrow={content.eyebrow} title={content.title} subtitle={content.subtitle} />
+    
+     
       <StatementBlock data={companyStatement} />
+       <MetricStrip metrics={metrics} />
       <ChallengeStatement data={companyHiringChallenge} />
       <OfferingsGrid data={companyOfferings} />
       <JourneySteps data={companyHiringJourney} />
