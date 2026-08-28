@@ -18,7 +18,10 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <div className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
+    // Same px-5/sm:px-8/lg:px-10 scale as Container, so the header pill's
+    // left/right edges line up with every section's content below it
+    // instead of running wider.
+    <div className="sticky top-0 z-50 px-5 pt-3 sm:px-8 sm:pt-4 lg:px-10">
       <header className="mx-auto max-w-7xl 3xl:max-w-[1640px] 4xl:max-w-[1960px] 5xl:max-w-[2240px]">
         <nav className="flex h-[60px] items-center justify-between rounded-[20px] border border-navy-900/[0.06] bg-white/75 pl-4 pr-2 backdrop-blur-lg card-shadow sm:pl-5 sm:pr-3">
           <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>

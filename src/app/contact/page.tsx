@@ -1,28 +1,20 @@
 import type { Metadata } from "next";
-import PageIntro from "@/components/ui/PageIntro";
-import ContactChannels from "@/components/sections/ContactChannels";
-import ContactHub from "@/components/sections/ContactHub";
+import ContactHeroBanner from "@/components/sections/ContactHeroBanner";
+import ContactCategoryForm from "@/components/sections/ContactCategoryForm";
+import ContactDetails from "@/components/sections/ContactDetails";
 
 export const metadata: Metadata = {
-  title: "Talk to KodoWorks",
+  title: "Contact Us | KodoWorks",
   description:
-    "Tell us where you are and where you want to go — a working engineer will map the right KodoWorks program for you, no obligation.",
+    "Get in touch with KodoWorks to learn more about our Fellowship Programs, partnerships, or hiring from Kodo.",
 };
 
 export default function ContactPage() {
   return (
     <main>
-      <PageIntro
-        eyebrow="Get in Touch"
-        title={
-          <>
-            <span className="text-navy-950">Talk to</span> <span className="text-navy-300">KodoWorks.</span>
-          </>
-        }
-        subtitle="Tell us where you are and where you want to go — a working engineer will map the right path for you, no obligation."
-      />
-      <ContactChannels />
-      <ContactHub />
+      <ContactHeroBanner />
+      <ContactCategoryForm />
+      <ContactDetails />
     </main>
   );
 }

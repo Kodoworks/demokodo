@@ -5,8 +5,10 @@ import { CheckCircle2 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { programs } from "@/lib/data";
 
+// text-base (16px), not text-[14px]: any focused input under 16px makes
+// iOS Safari auto-zoom the whole page in, which reads as broken on mobile.
 const fieldCls =
-  "w-full rounded-xl border border-navy-900/10 bg-white px-4 py-3 text-[14px] text-navy-950 placeholder:text-navy-400 focus:border-brand-500/50 focus:outline-none";
+  "w-full rounded-xl border border-navy-900/10 bg-white px-4 py-3 text-base text-navy-950 placeholder:text-navy-400 focus:border-brand-500/50 focus:outline-none sm:text-[14px]";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);

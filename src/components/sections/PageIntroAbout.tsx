@@ -15,8 +15,8 @@ export default function PageIntroAbout() {
 
           <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-navy-900/[0.08] bg-navy-100 card-shadow-lg">
             <Image
-              src="/aboutkodo.jpg"
-              alt="KodoWorks team bridging academia and industry"
+              src="/clgimage.webp"
+              alt="KodoWorks team collaborating in the office"
               fill
               className="object-cover"
               sizes="(min-width: 1024px) 40vw, 90vw"

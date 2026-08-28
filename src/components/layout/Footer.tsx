@@ -24,7 +24,7 @@ function InstagramIcon() {
 
 const linkColumns = [
   { title: "Company", links: footerLinks.company },
-  { title: "Institutions & Companies", links: footerLinks.institutions },
+  { title: "For You", links: footerLinks.audiences },
   { title: "Programs", links: footerLinks.programs },
   { title: "Legal", links: footerLinks.legal },
 ];

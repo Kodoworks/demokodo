@@ -24,12 +24,22 @@ type OfferingsData = {
   items: { icon: OfferingIcon; title: string; description: string }[];
 };
 
-// Cycle the site's three accent hues instead of repeating one color across
-// every card — same trio/order as CertificationsRow's marquee badges.
+// Six swatches, not three repeated twice — a second, visibly deeper shade
+// of each of the site's three accent hues (green/red/gold), so a 6-card
+// grid never shows two chips that read as the same color. Getting there
+// took a higher opacity jump than it looks like it should (10%→20% still
+// read as "the same pale chip" at this size — needed 10%→40%+ before the
+// second shade actually registers as a different color rather than a
+// slightly-less-pale version of the first). Amber keeps text-amber-600 in
+// both slots (the only amber shade that stays legible on a white chip —
+// see ContactChannels, DifferentiatorLedger, etc.) and varies only depth.
 const accents = [
-  { bg: "bg-brand-500/10", text: "text-brand-500" },
-  { bg: "bg-violet-500/10", text: "text-violet-600" },
-  { bg: "bg-amber-500/15", text: "text-amber-600" },
+  { bg: "bg-brand-500/12", text: "text-brand-500" },
+  { bg: "bg-violet-500/12", text: "text-violet-600" },
+  { bg: "bg-amber-500/18", text: "text-amber-600" },
+  { bg: "bg-brand-700/40", text: "text-brand-700" },
+  { bg: "bg-violet-600/45", text: "text-violet-600" },
+  { bg: "bg-amber-600/50", text: "text-amber-600" },
 ];
 
 export default function OfferingsGrid({ data = defaultData }: { data?: OfferingsData }) {

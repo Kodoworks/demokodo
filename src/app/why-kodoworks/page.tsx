@@ -1,24 +1,18 @@
 import type { Metadata } from "next";
-import { Grid2x2, LayoutGrid, TrendingUp, Users } from "lucide-react";
 import PageIntro from "@/components/ui/PageIntro";
-import MetricStrip from "@/components/sections/MetricStrip";
 import WhyKodoworksVisual from "@/components/sections/WhyKodoworksVisual";
-import ApproachStatement from "@/components/sections/ApproachStatement";
-import ApproachVisual from "@/components/sections/ApproachVisual";
 import CareerGrowthGains from "@/components/sections/CareerGrowthGains";
-import DifferentiatorLedger from "@/components/sections/DifferentiatorLedger";
+import StatementBlock from "@/components/sections/StatementBlock";
 import VersusComparison from "@/components/sections/VersusComparison";
 import DurationCompareChart from "@/components/sections/DurationCompareChart";
-import PlacementPathway from "@/components/sections/PlacementPathway";
+import Testimonials from "@/components/sections/Testimonials";
+import FAQ from "@/components/sections/FAQ";
 import FinalCta from "@/components/sections/FinalCta";
-import { coreMetrics } from "@/lib/data";
+import { whyKodoworksFaqs, whyKodoworksStatement, testimonials } from "@/lib/data";
 
-const metrics = [
-  { icon: Grid2x2, ...coreMetrics[0] },
-  { icon: Users, ...coreMetrics[1] },
-  { icon: LayoutGrid, ...coreMetrics[2] },
-  { icon: TrendingUp, ...coreMetrics[3] },
-];
+// Pairs a full-time-track and a career-switch quote — the two comparisons
+// this page itself makes (Versus, duration).
+const whyKodoworksTestimonials = testimonials.filter((t) => ["Dineshraj N", "Sunil Kumar A"].includes(t.name));
 
 export const metadata: Metadata = {
   title: "Why KodoWorks — Engineering-Led, Not Classroom-Led",
@@ -40,14 +34,41 @@ export default function WhyKodoWorksPage() {
         subtitle="Most training providers teach technology. KodoWorks practices it, and that difference shows up in every project, every mentor and every hiring conversation."
         visual={<WhyKodoworksVisual />}
       />
-      <MetricStrip metrics={metrics} />
-      <ApproachStatement visual={<ApproachVisual />} align="center" />
       <CareerGrowthGains />
-      <DifferentiatorLedger />
+      <StatementBlock data={whyKodoworksStatement} compact />
       <VersusComparison />
       <DurationCompareChart />
-      <PlacementPathway />
-      <FinalCta />
+      <Testimonials
+        eyebrow="The Difference, in Practice"
+        title={
+          <>
+            <span className="text-navy-950">What engineering-led</span>{" "}
+            <span className="text-navy-300">training actually produces.</span>
+          </>
+        }
+        subtitle="The comparisons above are ours to make. These outcomes are fellows' own words."
+        items={whyKodoworksTestimonials}
+        layout="zigzag"
+      />
+      <FAQ
+        eyebrow="Still Comparing?"
+        title={
+          <>
+            <span className="text-navy-950">The difference,</span> <span className="text-navy-300">answered.</span>
+          </>
+        }
+        subtitle="Still weighing KodoWorks against another option? Talk to a mentor and we'll help you compare."
+        items={whyKodoworksFaqs}
+      />
+      <FinalCta
+        title={
+          <>
+            See the difference <span className="text-violet-300">for yourself.</span>
+          </>
+        }
+        subtitle="Talk to a working engineer and compare KodoWorks against whatever else you're considering."
+        accent="violet"
+      />
     </main>
   );
 }

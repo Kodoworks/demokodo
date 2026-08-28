@@ -17,6 +17,7 @@ export default function ApproachStatement({
   visual,
   align = "start",
   highlights,
+  imageLeft = false,
 }: {
   data?: ApproachData;
   /** Optional photo/collage placed beside the paragraphs on lg+. Pages that
@@ -33,6 +34,10 @@ export default function ApproachStatement({
    * column more to say (and more height) when it's paired with a taller
    * visual, instead of leaving a lopsided gap below short paragraphs. */
   highlights?: string[];
+  /** Mirror the layout: visual on the left, paragraphs on the right
+   * (stacks with the visual on top on mobile). Default keeps text on the
+   * left. Has no effect when `visual` isn't passed. */
+  imageLeft?: boolean;
 }) {
   const paragraphs = (
     <div>
@@ -74,12 +79,21 @@ export default function ApproachStatement({
         <Reveal delay={140}>
           {visual ? (
             <div
-              className={`mt-8 grid grid-cols-1 gap-10 border-t border-navy-900/[0.07] pt-8 lg:grid-cols-[1fr_0.85fr] lg:gap-14 ${
+              className={`mt-8 grid grid-cols-1 gap-10 border-t border-navy-900/[0.07] pt-8 lg:gap-14 ${
                 align === "center" ? "items-center" : "items-start"
-              }`}
+              } ${imageLeft ? "lg:grid-cols-[0.85fr_1fr]" : "lg:grid-cols-[1fr_0.85fr]"}`}
             >
-              {paragraphs}
-              {visual}
+              {imageLeft ? (
+                <>
+                  {visual}
+                  {paragraphs}
+                </>
+              ) : (
+                <>
+                  {paragraphs}
+                  {visual}
+                </>
+              )}
             </div>
           ) : (
             <div className="mt-8 border-t border-navy-900/[0.07] pt-8">{paragraphs}</div>

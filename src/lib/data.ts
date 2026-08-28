@@ -314,6 +314,39 @@ export const faqs = [
   },
 ];
 
+export const programsFaqs = [
+  {
+    question: "How do I know which of the seven programs to pick?",
+    answer:
+      "Start with the domain that interests you or matches your current role — every program page lists who it's ideal for. Still unsure? Talk to a mentor and we'll match your background and goals to a track.",
+  },
+  {
+    question: "Are all seven programs run the same way?",
+    answer:
+      "Yes. Every track runs through the same format regardless of domain — live mentorship, a 1:8 mentor-to-fellow ratio and real project work. The technology changes; the structure doesn't.",
+  },
+  {
+    question: "Do I need prior experience in the domain I choose?",
+    answer:
+      "No. Each program is built to take you from fundamentals to production-grade work. What matters more is the time you're willing to put in each week.",
+  },
+  {
+    question: "How are the salary ranges on this page calculated?",
+    answer:
+      "They reflect realistic starting ranges by domain, drawn from where our fellows have actually been placed — not projected or advertised figures.",
+  },
+  {
+    question: "Does every program end in the same placement process?",
+    answer:
+      "Yes. Regardless of domain, your projects and assessments roll into one readiness score; crossing the threshold unlocks interview prep and our 150+ hiring partners.",
+  },
+  {
+    question: "Can I switch tracks after I've started?",
+    answer:
+      "Talk to your mentor as early as possible. Moves are handled case by case, depending on how far you are into the program and seat availability on the new track.",
+  },
+];
+
 export type Mentor = {
   name: string;
   role: string;
@@ -467,22 +500,37 @@ export const navLinks = [
   { label: "About", href: "/about" },
 ];
 
+// Every href below points at a route that actually exists in src/app.
+// Where no page exists yet (Careers, the legal pages, per-program pages),
+// the link falls back to /contact rather than 404ing — a working "talk to
+// us" beats a dead link. Columns are sized to land close to even (4/4/4/3)
+// instead of the old Programs column running to 7 while its neighbours sat
+// at 3.
 export const footerLinks = {
   company: [
     { label: "About KodoWorks", href: "/about" },
-    { label: "Careers", href: "/careers" },
+    { label: "Why KodoWorks", href: "/why-kodoworks" },
+    { label: "Careers", href: "/contact" },
     { label: "Contact Us", href: "/contact" },
   ],
-  institutions: [
-    { label: "Campus Connect (Colleges)", href: "/for-colleges" },
-    { label: "Corporate Training", href: "/for-companies" },
-    { label: "Hire from Kodo", href: "/for-companies" },
+  audiences: [
+    { label: "For Students", href: "/for-students" },
+    { label: "For Professionals", href: "/for-professionals" },
+    { label: "For Colleges", href: "/for-colleges" },
+    { label: "For Companies", href: "/for-companies" },
   ],
-  programs: programs.map((p) => ({ label: p.shortName, href: `/courses/${p.slug}` })),
+  // No program has its own page yet, so each links into the programs list
+  // section rather than a slug route that doesn't exist.
+  programs: [
+    { label: "AI & Machine Learning", href: "/programs#programs" },
+    { label: "Cloud Engineering & DevOps", href: "/programs#programs" },
+    { label: "Java Full Stack Development", href: "/programs#programs" },
+    { label: "View All 7 Programs", href: "/programs" },
+  ],
   legal: [
-    { label: "Privacy Policy", href: "/privacy-policy" },
-    { label: "Terms of Service", href: "/terms-of-service" },
-    { label: "Refund Policy", href: "/refund-policy" },
+    { label: "Privacy Policy", href: "/contact" },
+    { label: "Terms of Service", href: "/contact" },
+    { label: "Refund Policy", href: "/contact" },
   ],
 };
 
@@ -509,13 +557,31 @@ export const careerGrowthStatement = {
   intro:
     "At KodoWorks, every program is designed with a clear purpose — helping you develop skills that are relevant beyond the classroom.",
   gains: [
-    "Practical technology skills",
-    "Hands-on project experience",
-    "Guidance from industry professionals",
-    "A stronger professional portfolio",
-    "Improved problem-solving abilities",
-    "Career and interview preparation",
-    "Confidence to take the next step",
+    {
+      title: "Practical technology skills",
+      description: "Learn tools and workflows the same way working engineers actually use them, not just in theory.",
+    },
+    {
+      title: "Hands-on project experience",
+      description: "Build real, client-modeled projects you can show, not just coursework you completed.",
+    },
+    {
+      title: "Guidance from industry professionals",
+      description: "Get direct mentorship from engineers currently shipping production software.",
+    },
+    {
+      title: "A stronger professional portfolio",
+      description: "Leave with deployed, demonstrable work that speaks for itself in an interview.",
+    },
+    {
+      title: "Career and interview preparation",
+      description: "Walk into interviews ready, with structured prep built into the program itself.",
+    },
+    {
+      title: "Networking opportunities",
+      description:
+        "Access to peers, alumni, and industry experts that expand your professional circle and open doors to collaborations, internships, and job opportunities.",
+    },
   ],
 };
 
@@ -996,6 +1062,11 @@ export const companyStatement = {
     { label: "Hire Talent", href: "/contact", variant: "primary" as const },
     { label: "Partner with KodoWorks", href: "/contact", variant: "outline-dark" as const },
   ],
+  image: {
+    src: "/for-companies-hero.jpg",
+    alt: "Enterprise technology team reviewing data-driven hiring insights",
+    tag: "For Companies",
+  },
 };
 
 export const companyHiringChallenge = {
@@ -1149,6 +1220,89 @@ export const companyFaqs = [
   {
     question: "How do we get started?",
     answer: "Connect with the KodoWorks team and share your company's hiring or partnership requirements.",
+  },
+];
+
+export const aboutFaqs = [
+  {
+    question: "Is KodoWorks a training institute or a technology company?",
+    answer:
+      "A practising technology company. Training is one part of what we do — mentors are working engineers, not full-time trainers, and every program is built around real, client-modeled work.",
+  },
+  {
+    question: "Who are the mentors teaching in the programs?",
+    answer:
+      "Practising engineers currently working in the domains they teach, at a 1:8 mentor-to-fellow ratio — not dedicated training staff reading from a fixed curriculum.",
+  },
+  {
+    question: "What makes KodoWorks different from a coaching centre?",
+    answer:
+      "Every fellow works on live, client-modeled projects and moves through a transparent, score-based placement pathway — outcomes you can verify, not just a syllabus.",
+  },
+  {
+    question: "Do you only run classroom training?",
+    answer:
+      "No. Programs run Class Room, Online Live or Hybrid, and engagements span colleges, companies and individual fellows through staff augmentation.",
+  },
+  {
+    question: "How is placement actually handled?",
+    answer:
+      "Placement is score-based and transparent — projects, assessments and reviews roll into a readiness score that unlocks interview prep and our 150+ hiring partners.",
+  },
+  {
+    question: "Can my college or company partner with KodoWorks?",
+    answer:
+      "Yes. We work with colleges on campus training and internships, and with companies on hiring and workforce upskilling.",
+  },
+];
+
+export const whyKodoworksStatement = {
+  eyebrow: "How We Work",
+  title: "Built and taught by people who ship software for a living.",
+  paragraphs: [
+    "Every KodoWorks mentor is a practising engineer, not a full-time trainer. You learn the same tools, workflows and judgment calls they use on real client work every day.",
+    "That's the difference between hearing about the industry and actually being inside it.",
+  ],
+  ctas: [
+    { label: "Talk to KodoWorks", href: "/contact", variant: "primary" as const },
+    { label: "See Our Programs", href: "/programs", variant: "outline-dark" as const },
+  ],
+  image: {
+    src: "/why-kodoworks-statement.jpg",
+    alt: "KodoWorks fellows and mentors in conversation",
+    tag: "Engineering-Led",
+  },
+};
+
+export const whyKodoworksFaqs = [
+  {
+    question: "How is KodoWorks actually different from typical training providers?",
+    answer:
+      "It comes down to one thing — we're a practising technology company, not a training brand. Our mentors ship software for a living; typical providers hire dedicated trainers.",
+  },
+  {
+    question: "Are KodoWorks programs shorter than traditional courses?",
+    answer:
+      "Project-driven learning moves faster than lecture-driven formats. The actual spread varies by domain — see the duration comparison on this page.",
+  },
+  {
+    question: "What do I actually walk away with?",
+    answer:
+      "Practical technology skills, hands-on project experience, a stronger portfolio and career/interview preparation — not just a completion certificate.",
+  },
+  {
+    question: "Is the 1:8 mentor ratio real, or a marketing number?",
+    answer:
+      "It's the working ratio across live cohorts — close enough that mentors review your actual code, not just your attendance.",
+  },
+  {
+    question: "Does 'engineering-led' mean anything for placement outcomes?",
+    answer:
+      "Yes — it's why placement is score-based rather than a vague promise. Readiness is measured against the same bar working engineers use to evaluate real hires.",
+  },
+  {
+    question: "How do I see if this is right for me before committing?",
+    answer: "Talk to a mentor. We'll walk through the metrics on this page against your own background and goals, no obligation.",
   },
 ];
 

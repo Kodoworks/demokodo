@@ -1,6 +1,5 @@
 import Hero from "@/components/sections/Hero";
 import Audiences from "@/components/sections/Audiences";
-import StatsBar from "@/components/sections/StatsBar";
 import ContactFormSection from "@/components/sections/ContactFormSection";
 import ComparisonTable from "@/components/sections/ComparisonTable";
 import ValueProps from "@/components/sections/ValueProps";
@@ -19,7 +18,6 @@ export default function Home() {
     <main>
       <Hero />
       <Audiences />
-      <StatsBar />
       <ContactFormSection />
       <ComparisonTable />
       <ValueProps />
