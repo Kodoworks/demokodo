@@ -363,6 +363,13 @@ export const mentorProfiles: Mentor[] = [
   { name: "Manoj", role: "Data Architect", domain: "Data Intelligence & Engineering", icon: "chart", photo: "/images/mentors/mentor-manoj.jpg" },
   { name: "Divesh", role: "Senior Data Engineer", domain: "Data Intelligence & Engineering", icon: "chart", photo: "/images/mentors/mentor-divesh.jpg" },
   { name: "Arun", role: "Cybersecurity Engineer", domain: "Cybersecurity", icon: "shield", photo: "/images/mentors/mentor-arun.jpg" },
+  {
+    name: "Sathish",
+    role: "Cloud & DevOps Engineer",
+    domain: "Cloud Engineering & DevOps",
+    icon: "workflow",
+    photo: "/images/mentors/mentor-sathish.jpg",
+  },
 ];
 
 export const projectShowcase = [
@@ -510,7 +517,6 @@ export const footerLinks = {
   company: [
     { label: "About KodoWorks", href: "/about" },
     { label: "Why KodoWorks", href: "/why-kodoworks" },
-    { label: "Careers", href: "/contact" },
     { label: "Contact Us", href: "/contact" },
   ],
   audiences: [
@@ -528,9 +534,8 @@ export const footerLinks = {
     { label: "View All 7 Programs", href: "/programs" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "/contact" },
-    { label: "Terms of Service", href: "/contact" },
-    { label: "Refund Policy", href: "/contact" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Service", href: "/terms-of-service" },
   ],
 };
 

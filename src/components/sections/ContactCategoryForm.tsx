@@ -6,10 +6,11 @@ import {
   ArrowLeft,
   ArrowRight,
   Briefcase,
-  Building2,
+  ChevronRight,
   CheckCircle2,
+  FileText,
   GraduationCap,
-  Handshake,
+  Rocket,
   LucideIcon,
 } from "lucide-react";
 import Container from "@/components/ui/Container";
@@ -35,6 +36,8 @@ type Theme = {
   dot: string;
   button: string;
   buttonText: string;
+  /** Soft pastel fill — same pattern as #ffd4dcb8 */
+  cardStyle: { backgroundColor: string; borderRadius: string };
 };
 
 type Category = {
@@ -47,24 +50,23 @@ type Category = {
   form: { heading: string; subheading: string; buttonLabel: string; fields: FormField[] };
 };
 
-// Four distinct hues, but pulled from this site's own red/yellow/green/navy
-// token set rather than the raw pastel hex the reference used — same
-// four-way visual routing, none of it off-palette.
+// Soft pastel card hues matching the reference: light red, yellow, green, blue.
 const categories: Category[] = [
   {
     id: "corporate",
     title: "Corporate Enquiry",
     description: "Explore hiring pipelines, upskilling programs, or partnerships for your organization.",
-    icon: Handshake,
+    icon: FileText,
     theme: {
-      cardBg: "bg-violet-500/10",
-      cardHover: "hover:bg-violet-500/[0.16]",
-      chipBg: "bg-violet-500/15",
-      chipText: "text-violet-600",
-      focusRing: "focus:border-violet-500/50 focus:ring-violet-500/15",
-      dot: "bg-violet-500",
-      button: "bg-violet-500 hover:bg-violet-600",
+      cardBg: "",
+      cardHover: "hover:brightness-[0.97]",
+      chipBg: "bg-[#ffd4dc]",
+      chipText: "text-[#E05A4F]",
+      focusRing: "focus:border-[#E05A4F]/50 focus:ring-[#E05A4F]/15",
+      dot: "bg-[#E05A4F]",
+      button: "bg-[#E05A4F] hover:bg-[#C94A40]",
       buttonText: "text-white",
+      cardStyle: { backgroundColor: "#ffd4dcb8", borderRadius: "20px" },
     },
     image: { src: "/contact/corporate.webp", alt: "Corporate partnerships at KodoWorks" },
     form: {
@@ -95,16 +97,17 @@ const categories: Category[] = [
     id: "college",
     title: "College Enquiry",
     description: "Explore curriculum collaborations, training partnerships, or campus programs for your institution.",
-    icon: Building2,
+    icon: GraduationCap,
     theme: {
-      cardBg: "bg-amber-500/15",
-      cardHover: "hover:bg-amber-500/25",
-      chipBg: "bg-amber-500/25",
-      chipText: "text-amber-600",
-      focusRing: "focus:border-amber-500/60 focus:ring-amber-500/20",
-      dot: "bg-amber-500",
-      button: "bg-amber-500 hover:bg-amber-600",
-      buttonText: "text-navy-950",
+      cardBg: "",
+      cardHover: "hover:brightness-[0.97]",
+      chipBg: "bg-[#ffe8b0]",
+      chipText: "text-[#D97706]",
+      focusRing: "focus:border-[#D97706]/50 focus:ring-[#D97706]/15",
+      dot: "bg-[#D97706]",
+      button: "bg-[#D97706] hover:bg-[#B45309]",
+      buttonText: "text-white",
+      cardStyle: { backgroundColor: "#ffe8b0b8", borderRadius: "20px" },
     },
     image: { src: "/contact/collage.webp", alt: "Institutional partnerships at KodoWorks" },
     form: {
@@ -134,16 +137,17 @@ const categories: Category[] = [
     id: "program",
     title: "I'm interested in a Kodo Fellowship Program",
     description: "I want to know more about enrolling in one of KodoWorks' fellowship programs.",
-    icon: GraduationCap,
+    icon: Rocket,
     theme: {
-      cardBg: "bg-brand-500/10",
-      cardHover: "hover:bg-brand-500/[0.16]",
-      chipBg: "bg-brand-500/15",
-      chipText: "text-brand-600",
-      focusRing: "focus:border-brand-500/50 focus:ring-brand-500/15",
-      dot: "bg-brand-500",
-      button: "bg-brand-500 hover:bg-brand-600",
+      cardBg: "",
+      cardHover: "hover:brightness-[0.97]",
+      chipBg: "bg-[#c5f0d8]",
+      chipText: "text-[#2F9E6A]",
+      focusRing: "focus:border-[#2F9E6A]/50 focus:ring-[#2F9E6A]/15",
+      dot: "bg-[#2F9E6A]",
+      button: "bg-[#2F9E6A] hover:bg-[#258555]",
       buttonText: "text-white",
+      cardStyle: { backgroundColor: "#c5f0d8b8", borderRadius: "20px" },
     },
     image: { src: "/contact/fellowship.webp", alt: "Kodo Fellowship Programs" },
     form: {
@@ -181,14 +185,15 @@ const categories: Category[] = [
     description: "I want to explore career opportunities at KodoWorks or through its hiring network.",
     icon: Briefcase,
     theme: {
-      cardBg: "bg-navy-100",
-      cardHover: "hover:bg-navy-200",
-      chipBg: "bg-navy-200",
-      chipText: "text-navy-700",
-      focusRing: "focus:border-navy-400 focus:ring-navy-200",
-      dot: "bg-navy-700",
-      button: "bg-navy-900 hover:bg-navy-800",
+      cardBg: "",
+      cardHover: "hover:brightness-[0.97]",
+      chipBg: "bg-[#c8e4f8]",
+      chipText: "text-[#3B82B5]",
+      focusRing: "focus:border-[#3B82B5]/50 focus:ring-[#3B82B5]/15",
+      dot: "bg-[#3B82B5]",
+      button: "bg-[#3B82B5] hover:bg-[#2F6A96]",
       buttonText: "text-white",
+      cardStyle: { backgroundColor: "#c8e4f8b8", borderRadius: "20px" },
     },
     image: { src: "/contact/job.webp", alt: "Career opportunities at KodoWorks" },
     form: {
@@ -291,71 +296,103 @@ export default function ContactCategoryForm() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-24 py-4 sm:py-6">
+    <section id="contact" className="scroll-mt-24 py-6 sm:py-10">
       <Container>
-        <Reveal>
-          <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            <span className="text-navy-950">Get in</span> <span className="text-navy-300">Touch</span>
-          </h2>
-        </Reveal>
-        <Reveal delay={60}>
-          <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-navy-500">
-            Tell us who you are, and we&apos;ll route you to the right team.
-          </p>
-        </Reveal>
-
-        <div ref={panelRef} className="mt-10 scroll-mt-24 rounded-[2rem] bg-navy-50 p-5 sm:p-8 lg:p-10">
+        <div ref={panelRef} className="scroll-mt-24 rounded-[1.5rem] bg-[#F3F0FA] p-4 sm:rounded-[2rem] sm:p-8 lg:p-10">
           {!active ? (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {categories.map((cat, i) => {
-                const Icon = cat.icon;
-                return (
-                  <Reveal key={cat.id} delay={i * 60}>
+            <div className="grid grid-cols-1 items-stretch gap-6 sm:gap-8 lg:grid-cols-2 lg:gap-10">
+              {/* Left: heading + colored category cards */}
+              <div className="flex flex-col justify-center">
+                <Reveal>
+                  <h2 className="font-display text-[1.75rem] font-semibold leading-tight tracking-tight text-navy-950 sm:text-3xl lg:text-[2.75rem]">
+                    Get in Touch
+                  </h2>
+                </Reveal>
+                <Reveal delay={60}>
+                  <p className="mt-2.5 max-w-md text-[14px] leading-relaxed text-navy-500 sm:mt-3 sm:text-[15px]">
+                    Tell us who you are, and we&apos;ll route you to the right team.
+                  </p>
+                </Reveal>
+
+                <div className="mt-6 grid grid-cols-1 gap-2.5 sm:mt-8 sm:gap-3">
+                  {categories.map((cat, i) => {
+                    const Icon = cat.icon;
+                    return (
+                      <Reveal key={cat.id} delay={i * 60}>
+                        <button
+                          type="button"
+                          onClick={() => selectCategory(cat.id)}
+                          style={cat.theme.cardStyle}
+                          className={`group flex w-full items-center gap-3.5 px-4 py-4 text-left transition-all duration-300 hover:-translate-y-0.5 sm:gap-4 sm:px-5 sm:py-[1.125rem] ${cat.theme.cardHover}`}
+                        >
+                          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white shadow-[0_1px_3px_rgba(15,23,42,0.08)] transition-transform duration-300 group-hover:scale-105">
+                            <Icon className={`h-[22px] w-[22px] ${cat.theme.chipText}`} strokeWidth={2} />
+                          </span>
+                          <span className="min-w-0 flex-1">
+                            <span className="block text-[15px] font-semibold leading-snug text-navy-950">
+                              {cat.title}
+                            </span>
+                            <span className="mt-1 block text-[13px] leading-[1.45] text-navy-500">
+                              {cat.description}
+                            </span>
+                          </span>
+                          <ChevronRight
+                            className="h-4 w-4 shrink-0 text-navy-400/80 transition-transform duration-300 group-hover:translate-x-1"
+                            strokeWidth={2.25}
+                          />
+                        </button>
+                      </Reveal>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Right: 2×2 photo collage — desktop only via .contact-photo-grid */}
+              <div className="contact-photo-grid">
+                {categories.map((cat, i) => (
+                  <Reveal key={cat.id} delay={i * 60} className="h-full min-h-0">
                     <button
                       type="button"
                       onClick={() => selectCategory(cat.id)}
-                      className={`group flex h-full w-full items-center gap-4 rounded-2xl p-4 text-left transition-all duration-300 hover:-translate-y-0.5 sm:gap-5 sm:p-5 ${cat.theme.cardBg} ${cat.theme.cardHover}`}
+                      className="relative block h-full min-h-[220px] w-full overflow-hidden rounded-[1.25rem]"
+                      aria-label={cat.title}
                     >
-                      <span
-                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm transition-transform duration-300 group-hover:scale-105 sm:h-[46px] sm:w-[46px]`}
-                      >
-                        <Icon className={`h-5 w-5 ${cat.theme.chipText}`} strokeWidth={2} />
-                      </span>
-                      <span className="flex-1">
-                        <span className="block text-[14.5px] font-semibold text-navy-950">{cat.title}</span>
-                        <span className="mt-0.5 block text-[12.5px] leading-relaxed text-navy-500">{cat.description}</span>
-                      </span>
-                      <ArrowRight
-                        className="h-4 w-4 shrink-0 text-navy-400 transition-transform duration-300 group-hover:translate-x-1"
-                        strokeWidth={2}
+                      <Image
+                        src={cat.image.src}
+                        alt={cat.image.alt}
+                        fill
+                        sizes="22vw"
+                        className="object-cover object-center"
                       />
                     </button>
                   </Reveal>
-                );
-              })}
+                ))}
+              </div>
             </div>
           ) : (
             <div>
               <button
                 type="button"
                 onClick={goBack}
-                className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-navy-500 transition-colors hover:text-navy-900"
+                className="inline-flex items-center gap-1.5 rounded-[14px] bg-navy-950 px-4 py-2.5 text-[13px] font-semibold text-white transition-all duration-200 hover:bg-black"
               >
                 <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2.25} />
                 Back to Get in Touch options
               </button>
 
-              <div className="mt-5 grid grid-cols-1 overflow-hidden rounded-[1.5rem] bg-white card-shadow-lg lg:grid-cols-2">
-                {/* Photo panel */}
-                <div className="relative h-[220px] overflow-hidden sm:h-[260px] lg:h-auto lg:min-h-[460px]">
+              <div className="mt-5 grid grid-cols-1 overflow-hidden rounded-[20px] card-shadow-lg lg:grid-cols-2">
+                {/* Photo panel — same height on mobile & desktop, no crop */}
+                <div className="relative h-[320px] overflow-hidden bg-white">
                   <Image
                     src={active.image.src}
                     alt={active.image.alt}
-                    fill
+                    width={960}
+                    height={720}
                     sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-cover"
+                    className="h-full w-full object-contain"
+                    priority
                   />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-5 sm:p-6 lg:p-8">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm sm:h-12 sm:w-12">
                       <active.icon className={`h-5 w-5 ${active.theme.chipText}`} strokeWidth={2} />
@@ -366,9 +403,12 @@ export default function ContactCategoryForm() {
                   </div>
                 </div>
 
-                {/* Form panel */}
-                <div className="p-6 sm:p-8 lg:p-10">
-                  <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy-400">
+                {/* Form panel — same pastel bg as the selected left card */}
+                <div
+                  className="p-6 sm:p-8 lg:p-10"
+                  style={{ backgroundColor: active.theme.cardStyle.backgroundColor }}
+                >
+                  <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy-500">
                     <span className={`h-2.5 w-2.5 shrink-0 rounded-full ${active.theme.dot}`} />
                     {active.title}
                   </span>
@@ -378,7 +418,7 @@ export default function ContactCategoryForm() {
                   <p className="mt-2.5 text-[13.5px] leading-relaxed text-navy-500">{active.form.subheading}</p>
 
                   {submitted ? (
-                    <div className="mt-8 flex flex-col items-center justify-center rounded-2xl bg-navy-50 py-10 text-center">
+                    <div className="mt-8 flex flex-col items-center justify-center rounded-[20px] bg-white/70 py-10 text-center">
                       <div className={`flex h-14 w-14 items-center justify-center rounded-full ${active.theme.chipBg}`}>
                         <CheckCircle2 className={`h-7 w-7 ${active.theme.chipText}`} strokeWidth={2} />
                       </div>
@@ -394,7 +434,7 @@ export default function ContactCategoryForm() {
                       <div className="sm:col-span-2">
                         <button
                           type="submit"
-                          className={`group inline-flex w-full items-center justify-center gap-2 rounded-[14px] px-6 py-3.5 text-[15px] font-semibold transition-transform duration-200 hover:-translate-y-0.5 sm:w-auto ${active.theme.button} ${active.theme.buttonText}`}
+                          className="group inline-flex w-full items-center justify-center gap-2 rounded-[14px] bg-navy-950 px-6 py-3.5 text-[15px] font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-black sm:w-auto"
                         >
                           {active.form.buttonLabel}
                           <ArrowRight

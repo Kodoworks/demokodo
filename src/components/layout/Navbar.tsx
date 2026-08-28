@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
@@ -9,6 +10,7 @@ import { navLinks } from "@/lib/data";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
@@ -29,15 +31,22 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden items-center xl:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="whitespace-nowrap rounded-full px-3 py-2 text-[13.5px] font-medium text-navy-700 transition-colors hover:bg-navy-900/[0.05] hover:text-navy-950"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`whitespace-nowrap rounded-full px-3 py-2 text-[13.5px] font-medium transition-colors ${
+                    isActive
+                      ? "bg-brand-500/10 text-brand-600"
+                      : "text-navy-700 hover:bg-navy-900/[0.05] hover:text-navy-950"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="hidden xl:flex">
@@ -63,16 +72,21 @@ export default function Navbar() {
         >
           <div className="min-h-0">
             <div className="flex flex-col gap-1 rounded-[20px] border border-navy-900/[0.06] bg-white/95 p-3 backdrop-blur-lg card-shadow-lg">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-3.5 py-3 text-[15px] font-medium text-navy-800 hover:bg-navy-900/[0.04]"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`rounded-xl px-3.5 py-3 text-[15px] font-medium ${
+                      isActive ? "bg-brand-500/10 text-brand-600" : "text-navy-800 hover:bg-navy-900/[0.04]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <Button href="/contact" className="mt-2 w-full" onClick={() => setOpen(false)}>
                 Talk to KodoWorks
               </Button>
