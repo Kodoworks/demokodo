@@ -380,32 +380,37 @@ export default function ContactCategoryForm() {
                 Back to Get in Touch options
               </button>
 
-              <div className="mt-5 grid grid-cols-1 overflow-hidden rounded-[20px] card-shadow-lg lg:grid-cols-2">
-                {/* Photo panel — same height on mobile & desktop, no crop */}
-                <div className="relative h-[320px] overflow-hidden bg-white">
-                  <Image
-                    src={active.image.src}
-                    alt={active.image.alt}
-                    width={960}
-                    height={720}
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="h-full w-full object-contain"
-                    priority
-                  />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-5 sm:p-6 lg:p-8">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm sm:h-12 sm:w-12">
-                      <active.icon className={`h-5 w-5 ${active.theme.chipText}`} strokeWidth={2} />
-                    </span>
-                    <span className="font-display text-[16px] font-semibold leading-snug text-white sm:text-[19px]">
-                      {active.title}
-                    </span>
+              <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
+                {/* Photo panel — a fixed-height card that stays sticky alongside
+                    the form on desktop (forms run longer than the photo is tall),
+                    instead of either stretching the photo into a bad crop or
+                    leaving blank space below a short, static one. */}
+                <div>
+                  <div className="relative h-[320px] overflow-hidden rounded-[20px] bg-white card-shadow-lg lg:sticky lg:top-24 lg:h-[440px]">
+                    <Image
+                      src={active.image.src}
+                      alt={active.image.alt}
+                      width={544}
+                      height={747}
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="h-full w-full object-cover object-center"
+                      priority
+                    />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-5 sm:p-6 lg:p-8">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm sm:h-12 sm:w-12">
+                        <active.icon className={`h-5 w-5 ${active.theme.chipText}`} strokeWidth={2} />
+                      </span>
+                      <span className="font-display text-[16px] font-semibold leading-snug text-white sm:text-[19px]">
+                        {active.title}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Form panel — same pastel bg as the selected left card */}
                 <div
-                  className="p-6 sm:p-8 lg:p-10"
+                  className="rounded-[20px] p-6 sm:p-8 lg:p-10 card-shadow-lg"
                   style={{ backgroundColor: active.theme.cardStyle.backgroundColor }}
                 >
                   <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy-500">
