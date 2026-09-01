@@ -16,7 +16,7 @@ export default function PlacedStudents() {
           <SectionTag label="Hiring Network" />
           <Reveal delay={60}>
             <h2 className="font-display mt-4 text-3xl font-semibold leading-tight tracking-tight text-navy-950 sm:text-4xl">
-              Alumni are working
+              Alumni In Action
             </h2>
           </Reveal>
           <Reveal delay={100}>

@@ -717,8 +717,8 @@ export const audiencePages: Record<
         description: "Dedicated learning programs to upskill your existing team in AI, Cloud, Data or Cybersecurity.",
       },
       {
-        title: "150+ Company Network",
-        description: "Join a network of 150+ hiring partners already recruiting from KodoWorks.",
+        title: "15+ Company Network",
+        description: "Join a network of 15+ hiring partners already recruiting from KodoWorks.",
       },
     ],
   },
