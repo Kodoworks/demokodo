@@ -15,7 +15,7 @@ export default function ProfessionalsVisual() {
       <div className="relative overflow-hidden rounded-[28px] card-shadow-lg">
         <div className="relative h-[300px] w-full sm:h-[360px]">
           <Image
-            src="/images/hero/hero-poster-fellows.jpg"
+            src="/forprofessionals.jpg"
             alt="Working professionals upskilling with KodoWorks"
             fill
             sizes="440px"

@@ -36,7 +36,7 @@ export default function ForCollegesPage() {
       <StatementBlock visual={<CertificateVisual />} imageLeft />
       <ChallengeStatement />
       <OfferingsGrid />
-      <SplitChecklist />
+      <SplitChecklist showImage={false} />
       <NumberedReasons />
       <CollegePartnership benefits={content.benefits} />
       <Testimonials

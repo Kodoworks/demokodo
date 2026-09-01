@@ -31,12 +31,12 @@ export default function Hero() {
             {/* Real photo, edge to edge — the card had no photography at all before this */}
             <div className="relative h-[140px] w-full overflow-hidden sm:h-[160px]">
               <Image
-                src="/images/hero/hero-poster-fellows.jpg"
+                src="/homepagerightsidehero.jpg"
                 alt="Fellows working together at KodoWorks"
                 fill
                 sizes="440px"
                 className="object-cover"
-                style={{ objectPosition: "center 25%" }}
+                style={{ objectPosition: "center top" }}
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#14151a]" />
             </div>
@@ -74,33 +74,6 @@ export default function Hero() {
                 <span>500+ Hiring Partners</span>
               </div>
             </div>
-          </div>
-
-          {/* Floating chip: placements gauge */}
-          <div className="absolute -right-5 -top-8 hidden w-[160px] rounded-2xl border border-white/20 bg-white/15 p-4 backdrop-blur-xl sm:block">
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] font-semibold text-white">Placements</span>
-              <span className="rounded-full bg-white/20 px-2 py-0.5 text-[9px] font-semibold text-white">This year</span>
-            </div>
-            <div className="relative mx-auto mt-2 h-[64px] w-[100px] overflow-hidden">
-              <svg viewBox="0 0 100 100" className="absolute left-0 top-0 h-[100px] w-[100px]">
-                <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="10" />
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="42"
-                  fill="none"
-                  stroke="#f03a2e"
-                  strokeWidth="10"
-                  strokeLinecap="round"
-                  strokeDasharray="264"
-                  strokeDashoffset="27"
-                  transform="rotate(180 50 50)"
-                />
-              </svg>
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 text-[22px] font-bold text-white">95%</span>
-            </div>
-            <p className="mt-1 text-center text-[10px] leading-tight text-white/60">placed across the network</p>
           </div>
 
           {/* Floating chip: mentor ratio */}

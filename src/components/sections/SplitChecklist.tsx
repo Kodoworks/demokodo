@@ -29,8 +29,18 @@ const checkColors = [
   { bg: "bg-amber-500", ring: "ring-amber-500/20" },
 ];
 
-export default function SplitChecklist({ data = defaultData }: { data?: SplitChecklistData }) {
+export default function SplitChecklist({
+  data = defaultData,
+  showImage = true,
+}: {
+  data?: SplitChecklistData;
+  showImage?: boolean;
+}) {
   const image = data.image ?? DEFAULT_IMAGE;
+
+  if (!showImage) {
+    return <ChecklistCardGrid data={data} />;
+  }
 
   return (
     <section className="py-14 sm:py-18 lg:py-20">
@@ -106,6 +116,71 @@ export default function SplitChecklist({ data = defaultData }: { data?: SplitChe
             </Reveal>
           </div>
         </div>
+      </Container>
+    </section>
+  );
+}
+
+// No-image variant: a centered header over a bordered "focus areas" card,
+// items laid out as an icon grid instead of a lone vertical checklist
+// floating in the extra width the photo used to fill.
+function ChecklistCardGrid({ data }: { data: SplitChecklistData }) {
+  return (
+    <section className="py-14 sm:py-18 lg:py-20">
+      <Container>
+        <div className="mx-auto max-w-3xl text-center">
+          <SectionTag label={data.eyebrow} />
+          <Reveal delay={60}>
+            <h2 className="font-display mt-4 text-3xl font-semibold leading-tight tracking-tight text-navy-950 sm:text-4xl">
+              {data.title}
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-navy-500">{data.intro}</p>
+          </Reveal>
+        </div>
+
+        <Reveal delay={140}>
+          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-[28px] border border-navy-900/[0.07] bg-white card-shadow-lg">
+            <p className="border-b border-navy-900/[0.06] bg-navy-50/60 px-6 py-4 text-center text-[11px] font-bold uppercase tracking-[0.14em] text-navy-400 sm:px-8">
+              {data.listIntro}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+              {data.items.map((item, i) => {
+                const color = checkColors[i % checkColors.length];
+                const row = Math.floor(i / 2);
+                const isRightColumn = i % 2 === 1;
+                // A trailing odd item-out (last row has only one item) spans
+                // both columns and centers itself instead of sitting flush
+                // left with empty space beside it.
+                const isLoneTrailingItem = i === data.items.length - 1 && !isRightColumn && data.items.length % 2 === 1;
+                return (
+                  <div
+                    key={item}
+                    className={`group flex items-center gap-4 p-6 transition-colors hover:bg-navy-50/50 sm:p-7 ${
+                      row > 0 ? "border-t border-navy-900/[0.06]" : ""
+                    } ${isRightColumn ? "sm:border-l sm:border-navy-900/[0.06]" : ""} ${
+                      isLoneTrailingItem ? "sm:col-span-2 sm:justify-center" : ""
+                    }`}
+                  >
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${color.bg} transition-shadow group-hover:ring-4 ${color.ring}`}
+                    >
+                      <Check className="h-[18px] w-[18px] text-white" strokeWidth={2.75} />
+                    </span>
+                    <p className="text-[14.5px] font-medium leading-relaxed text-navy-800">{item}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <p className="mx-auto mt-8 max-w-xl text-center text-[15px] leading-relaxed text-navy-500">
+            {data.closing}
+          </p>
+        </Reveal>
       </Container>
     </section>
   );

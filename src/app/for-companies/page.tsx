@@ -51,7 +51,7 @@ export default function ForCompaniesPage() {
       <OfferingsGrid data={companyOfferings} />
       <JourneySteps data={companyHiringJourney} />
       <BenefitsPanel data={companyPartnerBenefits} />
-      <SplitChecklist data={hiringManagerSupport} />
+      <SplitChecklist data={hiringManagerSupport} showImage={false} />
       <RecruiterDashboard benefits={content.benefits} />
       <Testimonials
         eyebrow="Who You'd Be Hiring"

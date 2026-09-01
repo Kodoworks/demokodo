@@ -15,7 +15,7 @@ export default function ContactFormSection() {
               {/* Real photo band, same construction as the Hero poster card */}
               <div className="relative h-[190px] w-full overflow-hidden sm:h-[210px]">
                 <Image
-                  src="/images/hero/contact-form-mentor.jpg"
+                  src="/homepageimage1.avif"
                   alt="KodoWorks mentors and fellows talking in the office"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"

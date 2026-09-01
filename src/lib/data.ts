@@ -496,6 +496,24 @@ export const placedStudents = [
   { name: "Kishore Kumar", company: "ExpertsPro", logo: "/images/logos/expertspro.svg" },
 ];
 
+// Company logo cards for the "Alumni are working" marquee — each JPG in
+// /public/placementlogos is already a pre-styled card (white bg, border,
+// rounded corners, logo centered), all at the same 363×145 aspect ratio.
+export const placementLogos = [
+  { name: "VXI", src: "/placementlogos/logoplacement1.jpg" },
+  { name: "Bb", src: "/placementlogos/logoplacement2.jpg" },
+  { name: "Lumen", src: "/placementlogos/logoplacement3.jpg" },
+  { name: "Deloitte", src: "/placementlogos/placement4.jpg" },
+  { name: "ExpertsPro", src: "/placementlogos/placement5.jpg" },
+  { name: "IBM", src: "/placementlogos/placement6.jpg" },
+  { name: "Orion Business Innovation", src: "/placementlogos/placement7.jpg" },
+  { name: "EY", src: "/placementlogos/placement8.jpg" },
+  { name: "DMAIC Academy & Consultancy", src: "/placementlogos/placement9.jpg" },
+  { name: "Western Ghats Solutions and Services", src: "/placementlogos/placement10.jpg" },
+  { name: "Zytus", src: "/placementlogos/placement11.jpg" },
+  { name: "Solar Sys", src: "/placementlogos/placement13.jpg" },
+];
+
 export const navLinks = [
   { label: "Home", href: "/" },
   { label: "Programs", href: "/programs" },

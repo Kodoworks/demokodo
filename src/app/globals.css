@@ -179,6 +179,16 @@ body {
 
 .animate-marquee { animation: var(--animate-marquee); }
 
+/* Pause a marquee track on hover. This has to be plain unlayered CSS (like
+   .animate-marquee above), not a Tailwind `group-hover:[animation-play-
+   state:paused]` utility: Tailwind's utilities live inside `@layer
+   utilities`, and unlayered CSS always wins a property fight against
+   layered CSS regardless of specificity — so a layered utility can never
+   override `.animate-marquee`'s own animation shorthand here. */
+.marquee-pause-on-hover:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(16px);
